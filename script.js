@@ -3,15 +3,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 1. Logica per il menu mobile ---
     const menuToggle = document.getElementById('menu-toggle');
     const mainNav = document.getElementById('main-nav');
+    const navLinks = mainNav.querySelectorAll('a');
 
+    // Apre e chiude il menu al click sull'hamburger
     menuToggle.addEventListener('click', () => {
         mainNav.classList.toggle('is-active');
+    });
+
+    // Chiude il menu quando si clicca su un link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (mainNav.classList.contains('is-active')) {
+                mainNav.classList.remove('is-active');
+            }
+        });
     });
 
     // --- 2. Logica per la rotazione delle card su tocco ---
     const flipCards = document.querySelectorAll('.flip-card');
     flipCards.forEach(card => {
         card.addEventListener('click', () => {
+            // Aggiungiamo .is-flipped alla card interna per attivare la rotazione
             card.querySelector('.flip-card-inner').classList.toggle('is-flipped');
         });
     });
@@ -29,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target); // Opzionale: smette di osservare dopo l'animazione
+                observer.unobserve(entry.target); // Smette di osservare dopo l'animazione
             }
         });
     }, observerOptions);
