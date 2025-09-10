@@ -1,0 +1,506 @@
+/* --- Variabili CSS Globali --- */
+:root {
+    --background-dark: #121212;
+    --text-primary: #FFFFFF;
+    --accent-color: #FF0000; /* Rosso */
+    --font-primary: 'Poppins', sans-serif;
+}
+
+/* --- Reset e Stili di Base --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--background-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+    transition: background-color 0.3s ease; /* Aggiunto */
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease; /* Aggiunto */
+}
+
+/* --- Header Fisso --- */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 50px;
+    z-index: 100;
+    transition: background-color 0.3s ease;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.header-logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.header-nav a {
+    color: var(--text-primary);
+    text-decoration: none;
+    margin-left: 20px; /* Ridotto per compensare il separatore */
+    padding-left: 20px; /* Spazio a sinistra del testo */
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    position: relative; /* Necessario per il posizionamento del separatore */
+}
+
+.header-nav a:not(:first-child)::before {
+    content: '|';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-primary);
+    font-weight: 100; /* Più sottile */
+}
+
+.header-nav a:hover {
+    color: var(--accent-color);
+}
+
+/* --- Sezione Hero --- */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background-color: #000; /* Fallback nel caso il video non carichi */
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Overlay scuro per leggibilità - reso più chiaro */
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    padding: 20px;
+}
+
+.mission-tagline {
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+#typing-text {
+    color: #a3a3a3; /* Colore per il testo che cambia */
+    border-right: 3px solid #a3a3a3; /* Cursore di battitura */
+    animation: blink-caret 0.75s step-end infinite;
+    padding-right: 5px;
+}
+
+/* Animazione per il cursore di battitura */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #a3a3a3; }
+}
+
+/* --- Sezione About Me --- */
+.about-me {
+    padding: 100px 50px;
+    background-color: var(--background-dark);
+}
+
+.about-me-container {
+    max-width: 1200px; /* Aumentato per contenere le carte */
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-me h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 50px; /* Aumentato spazio */
+    text-transform: uppercase;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    perspective: 1000px; /* Prospettiva per l'effetto 3D */
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 450px; /* Aumentato l'altezza */
+    border-radius: 10px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.flip-card-front {
+    background-color: #1a1a1a;
+    border: 2px solid var(--accent-color);
+}
+
+.flip-card-front h3 {
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    text-transform: uppercase;
+}
+
+.flip-card-back {
+    background-color: #2c2c2c;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.flip-card-back p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Aggiustamenti Responsive */
+@media (max-width: 768px) {
+    .header {
+        padding: 20px;
+    }
+    .overlay-nav a {
+        font-size: 2rem;
+    }
+    h1 {
+        font-size: 3rem;
+    }
+    .mission-tagline {
+        font-size: 1rem;
+    }
+}
+
+/* --- Sezione Progetti --- */
+.projects {
+    padding: 100px 50px;
+    background-color: var(--background-dark);
+}
+
+.projects-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.projects h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-item {
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    text-align: left;
+    animation: slide-in-up 1s ease-out;
+    animation-timeline: view();
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-image-container {
+    background-color: #FFFFFF;
+    padding: 20px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-image-container img {
+    max-width: 80%;
+    max-height: 120px;
+    object-fit: contain;
+}
+
+.project-content {
+    padding: 30px;
+    color: #FFFFFF;
+}
+
+.project-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+.project-subtitle {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #c0c0c0;
+    margin-bottom: 20px;
+}
+
+.project-content p:not(.project-subtitle) {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #a0a0a0;
+}
+
+
+.contact {
+    padding: 100px 50px;
+    background-color: #1a1a1a;
+}
+
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: var(--text-primary);
+}
+
+.contact-form button {
+    background-color: var(--accent-color);
+    color: var(--text-primary);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #ff3333;
+}
+
+.contact-form {
+    animation: slide-in-up 1s ease-out;
+    animation-timeline: view();
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: #1a1a1a; /* Un grigio scuro per il footer */
+    color: var(--text-primary);
+    padding: 40px 50px;
+    font-size: 0.9rem;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between; /* Sposta gli elementi ai lati */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Permette agli elementi di andare a capo su schermi piccoli */
+}
+
+.footer-left,
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Allinea a sinistra per default */
+}
+
+.footer-right {
+    align-items: flex-end; /* Allinea a destra il contenuto del footer-right */
+    text-align: right;
+}
+
+.social-links a {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+}
+
+.footer-credits p,
+.footer-copyright p {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #a0a0a0; /* Un grigio più chiaro per il testo secondario */
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--accent-color);
+    color: var(--text-primary);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 90;
+}
+
+.back-to-top:hover {
+    background-color: #ff3333;
+    transform: translateY(-5px);
+}
+
+/* Media Queries per il footer */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-left,
+    .footer-right {
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .footer-right {
+        text-align: center;
+    }
+
+    .social-links {
+        margin-bottom: 10px;
+    }
+
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+    }
+}
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
