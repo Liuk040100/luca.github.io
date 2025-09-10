@@ -22,7 +22,10 @@
     <header class="header">
         <div class="header-container">
             <a href="#" class="header-logo">Luca Bertaggia</a>
-            <nav class="header-nav">
+            <button class="menu-toggle" id="menu-toggle" aria-label="Apri menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="header-nav" id="main-nav">
                 <a href="#about">CHI SONO</a>
                 <a href="#projects">PROGETTI</a>
                 <a href="#contact">CONTATTI</a>
@@ -38,7 +41,7 @@
         </video>
         <div class="hero-overlay"></div>
 
-        <div class="hero-content">
+        <div class="hero-content fade-in-element">
             <p class="mission-tagline">La Mia Missione</p>
             <h1>Semplificare il complesso,<br><span id="typing-text"></span></h1>
         </div>
@@ -48,7 +51,7 @@
 
     <!-- Sezione About Me -->
     <section id="about" class="about-me">
-        <div class="about-me-container">
+        <div class="about-me-container fade-in-element">
             <h2>CHI SONO</h2>
             <div class="cards-container">
                 <!-- Card Studi -->
@@ -101,7 +104,7 @@
 
     <!-- Sezione Progetti -->
     <section id="projects" class="projects">
-        <div class="projects-container">
+        <div class="projects-container fade-in-element">
             <h2>PROGETTI</h2>
             <div class="project-list">
                 <div class="project-item">
@@ -140,7 +143,7 @@
 
     <!-- Sezione Contatti -->
     <section id="contact" class="contact">
-        <div class="contact-container">
+        <div class="contact-container fade-in-element">
             <h2>CONTATTI</h2>
             <form class="contact-form">
                 <input type="text" name="name" placeholder="Nome" required>

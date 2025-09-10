@@ -1,7 +1,45 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- 1. Animazione di ingresso per il contenuto ---
-    // Usa GSAP per far apparire il testo con un effetto fade-in + leggero slide-up
+    // --- 1. Logica per il menu mobile ---
+    const menuToggle = document.getElementById('menu-toggle');
+    const mainNav = document.getElementById('main-nav');
+
+    menuToggle.addEventListener('click', () => {
+        mainNav.classList.toggle('is-active');
+    });
+
+    // --- 2. Logica per la rotazione delle card su tocco ---
+    const flipCards = document.querySelectorAll('.flip-card');
+    flipCards.forEach(card => {
+        card.addEventListener('click', () => {
+            card.querySelector('.flip-card-inner').classList.toggle('is-flipped');
+        });
+    });
+
+    // --- 3. Logica per l'animazione degli elementi a scorrimento ---
+    const fadeInElements = document.querySelectorAll('.fade-in-element');
+
+    const observerOptions = {
+        root: null, // rispetto al viewport
+        rootMargin: '0px',
+        threshold: 0.1 // l'elemento è considerato visibile se almeno il 10% è nel viewport
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target); // Opzionale: smette di osservare dopo l'animazione
+            }
+        });
+    }, observerOptions);
+
+    fadeInElements.forEach(el => {
+        observer.observe(el);
+    });
+
+
+    // --- 4. Animazione di ingresso per il contenuto (GSAP) ---
     gsap.from('.hero-content', {
         duration: 1.5,
         opacity: 0,
@@ -10,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         delay: 0.5
     });
 
-    // --- 2. Logica per l'effetto di battitura a macchina ---
+    // --- 5. Logica per l'effetto di battitura a macchina ---
     const typingText = document.getElementById('typing-text');
     const phrases = [
         "per dare forma al futuro.",

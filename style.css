@@ -235,21 +235,79 @@ h1 {
     line-height: 1.6;
 }
 
+/* --- Menu Hamburger --- */
+.menu-toggle {
+    display: none; /* Nascosto di default */
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 101;
+}
+
+/* --- Animazioni a Scorrimento --- */
+.fade-in-element {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-element.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
 /* Aggiustamenti Responsive */
 @media (max-width: 768px) {
     .header {
         padding: 20px;
     }
-    .overlay-nav a {
-        font-size: 2rem;
+
+    .menu-toggle {
+        display: block; /* Mostra il pulsante hamburger su mobile */
     }
+
+    .header-nav {
+        display: none; /* Nasconde la navigazione di default */
+        position: absolute;
+        top: 80px; /* Altezza dell'header */
+        left: 0;
+        width: 100%;
+        background-color: #1a1a1a;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+    }
+
+    .header-nav.is-active {
+        display: flex; /* Mostra la navigazione quando attiva */
+    }
+
+    .header-nav a {
+        margin: 10px 0;
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .header-nav a:not(:first-child)::before {
+        content: ''; /* Rimuove il separatore su mobile */
+    }
+
     h1 {
         font-size: 3rem;
     }
     .mission-tagline {
         font-size: 1rem;
     }
+
+    .flip-card {
+        height: 400px; /* Riduci l'altezza su mobile se necessario */
+    }
 }
+
 
 /* --- Sezione Progetti --- */
 .projects {
@@ -280,8 +338,6 @@ h1 {
     background-color: #1a1a1a;
     border-radius: 10px;
     text-align: left;
-    animation: slide-in-up 1s ease-out;
-    animation-timeline: view();
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -375,33 +431,6 @@ h1 {
 
 .contact-form button:hover {
     background-color: #ff3333;
-}
-
-.contact-form {
-    animation: slide-in-up 1s ease-out;
-    animation-timeline: view();
-}
-
-@keyframes fade-in {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slide-in-up {
-    from {
-        opacity: 0;
-        transform: translateY(100px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 /* --- Footer --- */
