@@ -194,8 +194,16 @@ h1 {
     transform-style: preserve-3d;
 }
 
-.flip-card:hover .flip-card-inner {
+/* Gira la card quando la classe .is-flipped è presente (per il tocco) */
+.flip-card-inner.is-flipped {
     transform: rotateY(180deg);
+}
+
+/* Applica l'effetto hover solo su dispositivi che lo supportano (non-touch) */
+@media (hover: hover) {
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
 }
 
 .flip-card-front,

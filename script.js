@@ -19,14 +19,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 2. Logica per la rotazione delle card su tocco ---
+    // --- 2. Logica avanzata per la rotazione delle card ---
     const flipCards = document.querySelectorAll('.flip-card');
+
+    const closeAllCards = () => {
+        flipCards.forEach(card => {
+            card.querySelector('.flip-card-inner').classList.remove('is-flipped');
+        });
+    };
+
     flipCards.forEach(card => {
-        card.addEventListener('click', () => {
-            // Aggiungiamo .is-flipped alla card interna per attivare la rotazione
-            card.querySelector('.flip-card-inner').classList.toggle('is-flipped');
+        card.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const currentCardInner = card.querySelector('.flip-card-inner');
+            const wasFlipped = currentCardInner.classList.contains('is-flipped');
+            
+            closeAllCards();
+
+            if (!wasFlipped) {
+                currentCardInner.classList.add('is-flipped');
+            }
         });
     });
+
+    // Chiude le card se si clicca fuori o si scorre
+    document.addEventListener('click', closeAllCards);
+    window.addEventListener('scroll', closeAllCards);
 
     // --- 3. Logica per l'animazione degli elementi a scorrimento ---
     const fadeInElements = document.querySelectorAll('.fade-in-element');
