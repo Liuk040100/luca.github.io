@@ -454,23 +454,22 @@ h1 {
     letter-spacing: 1px;
 }
 
-/* Icone Social al centro della sezione contatti */
+/* Icone Social inserite sotto il testo */
 .contact-social-links {
     margin-top: 25px;
     display: flex;
     justify-content: center;
-    gap: 30px;
 }
 
 .contact-social-links a {
-    color: var(--text-primary);
-    font-size: 2.2rem;
-    transition: color 0.3s ease, transform 0.3s ease;
+    color: var(--text-primary); /* Bianco come nel vecchio footer */
+    font-size: 1.5rem;          /* Stessa identica dimensione di prima */
+    margin: 0 10px;             /* Stessa identica spaziatura */
+    transition: color 0.3s ease;
 }
 
 .contact-social-links a:hover {
-    color: var(--accent-color);
-    transform: translateY(-5px);
+    color: var(--accent-color); /* Diventa rosso solo al passaggio del mouse */
 }
 
 /* --- Footer --- */
