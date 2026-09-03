@@ -516,6 +516,9 @@ a.scheda:hover .scheda-titolo, a.scheda:focus-visible .scheda-titolo { backgroun
   border: 1px dashed var(--line-strong);
   padding: .45rem .7rem;
 }
+/* Voci diventate link veri: bordo pieno, e sottolineatura larga quanto il testo. */
+a.segnaposto { border-style: solid; }
+a.contatto { display: inline-block; }
 
 /* ---------- 10. Piè di pagina ---------- */
 
