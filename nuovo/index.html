@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="it" data-tema="scuro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Luca [[COGNOME]] — sito personale</title>
+<meta name="description" content="Sito personale di Luca [[COGNOME]]. [[TAGLINE: una frase su cosa fa Luca]] Costruisco fid.ai, l'assistente WhatsApp per professionisti.">
+<meta name="author" content="Luca [[COGNOME]]">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0F141B">
+
+<!-- Open Graph (base). Quando il dominio è deciso, aggiungere qui:
+     <link rel="canonical" href="https://ESEMPIO.it/">
+     <meta property="og:url" content="https://ESEMPIO.it/">
+     <meta property="og:image" content="https://ESEMPIO.it/anteprima.png">  (1200x630) -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="Luca [[COGNOME]]">
+<meta property="og:title" content="Luca [[COGNOME]] — sito personale">
+<meta property="og:description" content="[[TAGLINE: una frase su cosa fa Luca]] Costruisco fid.ai, l'assistente WhatsApp per professionisti.">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/newsreader-italic-300600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/jetbrains-mono-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+
+<script>
+  /* Tema deciso prima del primo fotogramma: nessun lampeggio.
+     Scuro di default; il chiaro esiste solo se salvato dall'utente. */
+  (function () {
+    document.documentElement.classList.add('js');
+    try {
+      var t = localStorage.getItem('luca:tema');
+      document.documentElement.setAttribute('data-tema', t === 'chiaro' ? 'chiaro' : 'scuro');
+    } catch (e) { /* localStorage negato: resta scuro */ }
+  })();
+</script>
+<noscript><style>.tema { display: none; }</style></noscript>
+</head>
+
+<body>
+<a class="salta-al-contenuto" href="#contenuto">Salta al contenuto</a>
+
+<header class="testata">
+  <div class="gabbia testata-riga">
+    <a class="monogramma" href="#cima" aria-label="Torna in cima e rianima il monogramma">
+      <canvas id="monogramma" width="40" height="40" aria-hidden="true"></canvas>
+    </a>
+
+    <nav class="nav" aria-label="Sezioni della pagina">
+      <a href="#chi-sono">Chi sono</a>
+      <a href="#cosa-costruisco">Cosa costruisco</a>
+      <a href="#scrivimi">Scrivimi</a>
+    </nav>
+
+    <button class="tema" type="button" data-tema-toggle aria-label="Passa al tema chiaro">
+      <svg class="icona-sole" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.6"/><path d="M12 2.4v2.6M12 19v2.6M2.4 12h2.6M19 12h2.6M5.2 5.2l1.9 1.9M16.9 16.9l1.9 1.9M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9"/></svg>
+      <svg class="icona-luna" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.2A8.4 8.4 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2z"/></svg>
+      <span class="tema-testo">Chiaro</span>
+    </button>
+  </div>
+</header>
+
+<main id="contenuto">
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="cima">
+    <div class="gabbia">
+      <p class="etichetta hero-eyebrow entra entra-1">Sito personale · 2026</p>
+
+      <h1 class="hero-titolo">
+        <span class="riga entra entra-2">Luca</span>
+        <span class="riga cognome entra entra-3">[[COGNOME]]</span>
+      </h1>
+
+      <p class="hero-tagline entra entra-4">[[TAGLINE: una frase su cosa fa Luca]]</p>
+
+      <div class="hero-basso">
+        <div class="terminale entra entra-5" role="group" aria-label="Presentazione in forma di terminale">
+          <div class="terminale-barra" aria-hidden="true">
+            <span class="terminale-punto"></span>
+            <span class="terminale-punto"></span>
+            <span class="terminale-punto"></span>
+            <span class="terminale-nome">luca — presentazione</span>
+          </div>
+          <div class="terminale-corpo" data-terminale>
+            <p class="t-riga t-cmd"><span class="t-prompt" aria-hidden="true">$</span><span class="t-testo">chi-sono</span></p>
+            <p class="t-riga t-out"><span class="t-testo">Luca [[COGNOME]] — [[COSA FACCIO]]</span></p>
+            <p class="t-riga t-cmd"><span class="t-prompt" aria-hidden="true">$</span><span class="t-testo">dove</span></p>
+            <p class="t-riga t-out"><span class="t-testo">[[CITTÀ]]</span></p>
+            <p class="t-riga t-cmd"><span class="t-prompt" aria-hidden="true">$</span><span class="t-testo">a-cosa-lavoro</span></p>
+            <p class="t-riga t-out"><span class="t-testo">costruisco fid.ai</span><span class="t-cursore"></span></p>
+          </div>
+        </div>
+
+        <a class="scorri" href="#chi-sono"><span class="freccia" aria-hidden="true">↓</span> scorri per continuare</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Corpo: sezioni sincronizzate allo scorrimento ===== -->
+  <div class="corpo" data-sincro>
+
+    <section class="sezione" id="chi-sono" aria-labelledby="titolo-chi-sono">
+      <div class="gabbia sezione-griglia">
+        <p class="etichetta sezione-indice"><span>01</span><span>Chi sono</span></p>
+        <div class="sezione-contenuto">
+          <h2 class="sezione-titolo rivela" id="titolo-chi-sono">Chi sono</h2>
+          <div class="prosa">
+            <!-- SOSTITUIRE con il testo vero: 2 paragrafi brevi, prima persona. -->
+            <p>[[BIO 1: due o tre righe in prima persona — chi sei, da dove vieni, che lavoro fai oggi]]</p>
+            <p>[[BIO 2: due o tre righe in prima persona — come lavori, cosa ti interessa, che problemi ti piace risolvere]]</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sezione" id="cosa-costruisco" aria-labelledby="titolo-cosa-costruisco">
+      <div class="gabbia sezione-griglia">
+        <p class="etichetta sezione-indice"><span>02</span><span>Cosa costruisco</span></p>
+        <div class="sezione-contenuto">
+          <h2 class="sezione-titolo rivela" id="titolo-cosa-costruisco">Cosa costruisco</h2>
+          <div class="prosa">
+            <p>Progetti che parto e porto avanti da solo. Uno è pubblico, gli altri due
+              aspettano di essere raccontati.</p>
+          </div>
+          <div class="schede">
+            <a class="scheda" href="https://fidai.it" rel="noopener">
+              <h3 class="scheda-titolo">fid.ai</h3>
+              <p class="scheda-testo">L'assistente WhatsApp per professionisti: gestisce messaggi
+                e appuntamenti su WhatsApp e si collega al tuo Google Calendar.</p>
+              <span class="scheda-piede">fidai.it -&gt;</span>
+            </a>
+
+            <!-- SOSTITUIRE i due riquadri qui sotto con progetti veri; per renderli
+                 cliccabili basta cambiare <div class="scheda scheda-vuota"> in
+                 <a class="scheda" href="https://..." rel="noopener">. -->
+            <div class="scheda scheda-vuota">
+              <h3 class="scheda-titolo">[[PROGETTO 2]]</h3>
+              <p class="scheda-testo">[[PROGETTO 2 — una riga: cos'è e a chi serve]]</p>
+              <span class="scheda-piede">[[LINK PROGETTO 2]]</span>
+            </div>
+
+            <div class="scheda scheda-vuota">
+              <h3 class="scheda-titolo">[[PROGETTO 3]]</h3>
+              <p class="scheda-testo">[[PROGETTO 3 — una riga: cos'è e a chi serve]]</p>
+              <span class="scheda-piede">[[LINK PROGETTO 3]]</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sezione" id="scrivimi" aria-labelledby="titolo-scrivimi">
+      <div class="gabbia sezione-griglia">
+        <p class="etichetta sezione-indice"><span>03</span><span>Scrivimi</span></p>
+        <div class="sezione-contenuto">
+          <h2 class="sezione-titolo rivela" id="titolo-scrivimi">Scrivimi</h2>
+          <div class="prosa">
+            <p>Il modo più diretto è la posta. Rispondo a tutto quello che non è una proposta
+              di link building.</p>
+          </div>
+          <!-- SOSTITUIRE con: <a class="contatto collegamento" href="mailto:INDIRIZZO">INDIRIZZO</a> -->
+          <p class="contatto">[[EMAIL]]</p>
+
+          <!-- SOSTITUIRE ogni voce con: <li><a class="segnaposto collegamento" href="https://...">GitHub</a></li> -->
+          <ul class="social">
+            <li><span class="segnaposto">[[LINK GITHUB]]</span></li>
+            <li><span class="segnaposto">[[LINK LINKEDIN]]</span></li>
+            <li><span class="segnaposto">[[LINK X]]</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="piede">
+  <div class="gabbia piede-riga">
+    <span>© 2026 Luca [[COGNOME]] · fatto a mano, senza tracker</span>
+    <span class="piede-nota"><a href="#cima">Torna in cima</a></span>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

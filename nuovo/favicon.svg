@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" role="img" aria-label="Monogramma L">
+  <title>L — Luca</title>
+  <style>
+    .fondo { fill: #0F141B; }
+    .bordo { stroke: #2A3542; }
+    .lettera { stroke: #6A9FCC; }
+    @media (prefers-color-scheme: light) {
+      .fondo { fill: #EBE7E4; }
+      .bordo { stroke: #B9AFA6; }
+      .lettera { stroke: #3D5271; }
+    }
+  </style>
+  <rect class="fondo" width="40" height="40"/>
+  <rect class="bordo" x="0.5" y="0.5" width="39" height="39" fill="none" stroke-width="1"/>
+  <g class="lettera" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 10 H22"/>
+    <path d="M17 10 V29 H30 V25.5"/>
+  </g>
+</svg>
