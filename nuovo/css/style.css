@@ -195,11 +195,13 @@ a { color: inherit; }
 .monogramma:hover { border-color: var(--line-strong); background: var(--accent-soft); }
 .monogramma canvas { width: 2.5rem; height: 2.5rem; }
 
+/* L'indice della pagina sta a sinistra, accanto al monogramma: a destra
+   restano solo lingua e tema, e l'intestazione respira. */
 .nav {
-  margin-left: auto;
+  margin-left: 1.6rem;
   display: flex;
   align-items: center;
-  gap: 1.75rem;
+  gap: 1.5rem;
 }
 
 .nav a {
@@ -226,7 +228,7 @@ a { color: inherit; }
   align-items: center;
   gap: .15rem;
 }
-.nav + .lingue { margin-left: 1.5rem; }
+.nav + .lingue { margin-left: auto; }
 
 .lingua {
   font-family: var(--mono);
@@ -527,6 +529,101 @@ a.scheda:hover .scheda-titolo, a.scheda:focus-visible .scheda-titolo { backgroun
 .scheda-vuota { border-left: 1px dashed var(--line-strong); }
 .scheda-vuota .scheda-titolo, .scheda-vuota .scheda-piede { color: var(--text-faint); }
 
+/* ---------- 8bis. Ritratto in «Chi sono» ---------------------------------
+   La foto è scontornata (PNG/WebP con trasparenza): niente cornice, e in
+   basso sfuma nel fondo, così il taglio alla vita non si vede. */
+
+.con-ritratto {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+  align-items: start;
+}
+.ritratto { margin: 0; max-width: 13rem; }
+.ritratto img {
+  width: 100%;
+  height: auto;
+  -webkit-mask-image: linear-gradient(to bottom, #000 74%, transparent 99%);
+          mask-image: linear-gradient(to bottom, #000 74%, transparent 99%);
+}
+
+@media (min-width: 760px) {
+  .con-ritratto { grid-template-columns: minmax(0, 1fr) 13rem; gap: 3rem; }
+  .ritratto { max-width: none; }
+}
+
+/* ---------- 8ter. Percorso: linea del tempo ------------------------------
+   Righe separate da un filo, anno in monospace a sinistra e, da 760 px in
+   su, la riga verticale con il quadratino su ogni tappa. */
+
+.tappe { list-style: none; margin: 2.25rem 0 0; padding: 0; }
+
+.tappa {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .35rem;
+  padding: 1.15rem 0 1.3rem;
+  border-top: 1px solid var(--line);
+}
+.tappa:last-child { border-bottom: 1px solid var(--line); }
+
+.tappa-anno {
+  margin: 0;
+  color: var(--text-faint);
+  white-space: nowrap;
+  transition: color 340ms var(--curva);
+}
+.sezione.attiva .tappa-anno { color: var(--text-dim); }
+
+.tappa-titolo {
+  margin: 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.32rem;
+  line-height: 1.2;
+  letter-spacing: -.012em;
+  color: var(--text);
+  overflow-wrap: break-word;
+}
+
+.tappa-testo {
+  margin: .3rem 0 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-dim);
+  max-width: 38rem;
+  overflow-wrap: break-word;
+}
+
+@media (min-width: 760px) {
+  .tappa {
+    grid-template-columns: 8rem minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+  .tappa-anno { padding-top: .3rem; }
+  .tappa::before {
+    content: '';
+    position: absolute;
+    left: 9.25rem;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--line);
+  }
+  .tappa::after {
+    content: '';
+    position: absolute;
+    left: 8.97rem;
+    top: 1.45rem;
+    width: .42rem;
+    height: .42rem;
+    background: var(--bg-canvas);
+    border: 1px solid var(--line-strong);
+  }
+}
+
 /* ---------- 9. Scrivimi ---------- */
 
 /* Icone in linea: disegnate a mano, nessuna libreria. */
@@ -602,6 +699,10 @@ a.segnaposto:hover, a.segnaposto:focus-visible { color: var(--text); }
 a.segnaposto:hover .collegamento,
 a.segnaposto:focus-visible .collegamento { background-size: 0% 1px; }
 .segnaposto .collegamento { color: inherit; }
+/* La mail sta nella stessa fila di GitHub e LinkedIn, ma per leggerla serve
+   il minuscolo: è l'unica pastiglia senza maiuscoletto. */
+.segnaposto.email { text-transform: none; letter-spacing: .02em; font-size: .78rem; }
+.segnaposto.email span { word-break: break-all; }
 
 /* ---------- 10. Piè di pagina ---------- */
 
@@ -707,6 +808,15 @@ a.segnaposto:focus-visible .collegamento { background-size: 0% 1px; }
   .terminale-corpo { font-size: .76rem; padding-inline: .8rem; }
 }
 
+@media (min-width: 640px) {
+  .schede { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 900px) {
+  .nav { margin-left: 1.1rem; gap: 1.1rem; }
+  .nav a { font-size: .74rem; letter-spacing: .08em; }
+}
+
 @media (min-width: 1024px) {
   .sezione-griglia {
     grid-template-columns: 12rem minmax(0, 1fr);
@@ -718,7 +828,6 @@ a.segnaposto:focus-visible .collegamento { background-size: 0% 1px; }
     flex-direction: column;
     gap: .5rem;
   }
-  .schede { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .hero-basso {
     grid-template-columns: minmax(0, 40rem);
   }

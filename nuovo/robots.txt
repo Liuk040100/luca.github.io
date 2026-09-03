@@ -1,0 +1,5 @@
+# Sito personale di Luca — indicizzazione libera, nessun tracker.
+User-agent: *
+Allow: /
+
+Sitemap: https://liuk040100.github.io/luca.github.io/nuovo/sitemap.xml

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Una sola pagina: le cinque lingue vivono sullo stesso indirizzo e si
+     scelgono nel browser. Quando il sito prenderà il posto del vecchio alla
+     radice, va tolto "nuovo/" da <loc> (e dalle righe assolute in index.html). -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://liuk040100.github.io/luca.github.io/nuovo/</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

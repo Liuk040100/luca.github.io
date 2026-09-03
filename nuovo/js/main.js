@@ -147,16 +147,37 @@
     window.addEventListener('resize', function () { disegnaMonogramma(1); });
   }
 
-  /* ---------- 3. Terminale che digita ---------------------------------- */
+  /* ---------- 3. Terminale che digita ----------------------------------
 
-  /* Il testo è già nell'HTML (funziona senza JS e per i motori di ricerca):
-     lo svuotiamo e lo riscriviamo carattere per carattere. L'altezza delle
-     righe è fissata dal CSS, quindi la pagina non salta.
-     Al cambio lingua non si ridigita: i18n.js riscrive il testo definitivo e
-     qui si mette solo a posto il finale (prompt visibili, cursore in fondo). */
+     Il testo definitivo è già nell'HTML (funziona senza JS e per i motori di
+     ricerca): viene messo da parte, i campi si svuotano e si riscrivono un
+     carattere alla volta. L'altezza delle righe è fissata dal CSS, quindi la
+     pagina non salta mai.
+     Il cursore lampeggia sul primo prompt prima che parta la battitura, dopo
+     ogni comando c'è una pausa (la macchina "pensa") e alla fine resta un
+     prompt vuoto col cursore acceso: sembra una sessione ancora aperta.
+     Un clic sul riquadro la ribatte da capo. */
 
   var terminale = document.querySelector('[data-terminale]');
   var timerTerminale = null;
+
+  function righeTerminale() {
+    return [].slice.call(terminale.querySelectorAll('.t-riga')).map(function (riga) {
+      return {
+        span: riga.querySelector('.t-testo'),
+        prompt: riga.querySelector('.t-prompt'),
+        comando: riga.classList.contains('t-cmd')
+      };
+    });
+  }
+
+  /* Il testo pieno viene messo da parte: serve per ribattere e per rimetterlo
+     a posto quando cambia la lingua. */
+  function memorizzaTesti() {
+    righeTerminale().forEach(function (r) {
+      r.span.setAttribute('data-pieno', r.span.textContent);
+    });
+  }
 
   function fermaTerminale() {
     if (timerTerminale) { clearTimeout(timerTerminale); timerTerminale = null; }
@@ -165,71 +186,86 @@
   function chiudiTerminale() {
     if (!terminale) return;
     fermaTerminale();
-    var righe = [].slice.call(terminale.querySelectorAll('.t-riga'));
-    righe.forEach(function (riga) {
-      var prompt = riga.querySelector('.t-prompt');
-      if (prompt) prompt.style.visibility = 'visible';
+    var righe = righeTerminale();
+    righe.forEach(function (r) {
+      if (r.prompt) r.prompt.style.visibility = 'visible';
+      var pieno = r.span.getAttribute('data-pieno');
+      if (pieno !== null) r.span.textContent = pieno;
     });
     var cursore = terminale.querySelector('.t-cursore');
-    if (cursore && righe.length) {
-      righe[righe.length - 1].appendChild(cursore);
+    var ultima = righe[righe.length - 1];
+    if (cursore && ultima) {
+      ultima.span.parentNode.appendChild(cursore);
       cursore.hidden = false;
     }
   }
 
-  if (terminale && !motoRidotto) {
-    var cursore = terminale.querySelector('.t-cursore');
-    var righe = [].slice.call(terminale.querySelectorAll('.t-riga'));
+  function battiTerminale() {
+    if (!terminale || motoRidotto) return;
+    fermaTerminale();
 
-    var testi = righe.map(function (riga) {
-      var span = riga.querySelector('.t-testo');
-      var valore = span.textContent;
-      span.textContent = '';
-      var prompt = riga.querySelector('.t-prompt');
-      if (prompt) prompt.style.visibility = 'hidden';
-      return { span: span, prompt: prompt, valore: valore, comando: riga.classList.contains('t-cmd') };
+    var righe = righeTerminale();
+    var cursore = terminale.querySelector('.t-cursore');
+
+    righe.forEach(function (r) {
+      r.span.textContent = '';
+      if (r.prompt) r.prompt.style.visibility = 'hidden';
     });
+
+    // sessione aperta e ferma: solo il primo prompt, col cursore che lampeggia
+    var primo = righe[0];
+    if (primo) {
+      if (primo.prompt) primo.prompt.style.visibility = 'visible';
+      if (cursore) { primo.span.parentNode.appendChild(cursore); cursore.hidden = false; }
+    }
 
     var indiceRiga = 0;
     var indiceCarattere = 0;
 
-    var scriviCarattere = function () {
-      if (indiceRiga >= testi.length) { if (cursore) cursore.hidden = false; return; }
-      var r = testi[indiceRiga];
+    function passo() {
+      if (indiceRiga >= righe.length) { timerTerminale = null; return; }
+      var r = righe[indiceRiga];
+      var pieno = r.span.getAttribute('data-pieno') || '';
 
       if (indiceCarattere === 0) {
         if (r.prompt) r.prompt.style.visibility = 'visible';
         if (cursore) r.span.parentNode.appendChild(cursore);
       }
 
-      if (indiceCarattere < r.valore.length) {
-        r.span.textContent += r.valore.charAt(indiceCarattere);
+      if (indiceCarattere < pieno.length) {
+        r.span.textContent += pieno.charAt(indiceCarattere);
         indiceCarattere++;
-        // i comandi si «battono», l'output esce più svelto
-        var ritmo = r.comando ? 42 + Math.random() * 34 : 14 + Math.random() * 14;
-        timerTerminale = setTimeout(scriviCarattere, ritmo);
+        // i comandi si «battono» a mano, l'output esce di macchina
+        var ritmo = r.comando ? 44 + Math.random() * 34 : 10 + Math.random() * 10;
+        timerTerminale = setTimeout(passo, ritmo);
       } else {
         indiceRiga++;
         indiceCarattere = 0;
-        timerTerminale = setTimeout(scriviCarattere, r.comando ? 300 : 180);
+        // dopo un comando la macchina ci pensa su, poi risponde
+        timerTerminale = setTimeout(passo, r.comando ? 360 + Math.random() * 200 : 240);
       }
-    };
+    }
 
-    if (cursore) cursore.hidden = true;
-    // parte dopo l'ingresso scaglionato dell'hero
-    timerTerminale = setTimeout(function () {
-      if (cursore) cursore.hidden = false;
-      scriviCarattere();
-    }, 950);
+    timerTerminale = setTimeout(passo, 950);
   }
 
-  /* ---------- 4. Cambio lingua ----------------------------------------- */
+  if (terminale) {
+    memorizzaTesti();
+    if (motoRidotto) chiudiTerminale();
+    else battiTerminale();
+    // un clic sul riquadro rifà la sessione da capo
+    terminale.parentNode.addEventListener('click', battiTerminale);
+  }
 
-  /* i18n.js ha già riscritto i testi quando arriva qui: al terminale basta
-     chiudere la digitazione in corso, al bottone del tema rifare l'etichetta. */
+  /* ---------- 4. Cambio lingua -----------------------------------------
+
+     i18n.js ha già riscritto i testi quando arriva qui: il terminale rilegge
+     il testo nuovo e chiude la battitura in corso, il bottone del tema rifà
+     l'etichetta. */
+
   if (window.LucaI18n) {
     window.LucaI18n.alCambio(function () {
-      chiudiTerminale();
+      if (terminale) { memorizzaTesti(); chiudiTerminale(); }
       applicaTema(temaCorrente(), false);
     });
   }
