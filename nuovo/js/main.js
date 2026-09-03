@@ -1,5 +1,6 @@
 /* =========================================================================
-   Sito personale di Luca — unico file JS, vanilla, nessuna dipendenza.
+   Sito personale di Luca — unico file JS di comportamento, vanilla,
+   nessuna dipendenza. Le traduzioni stanno in js/i18n.js, che gira prima.
    Quattro comportamenti: tema, monogramma su canvas, terminale che digita,
    sezioni sincronizzate allo scorrimento.
    Con `prefers-reduced-motion: reduce` ogni animazione viene saltata e la
@@ -10,6 +11,15 @@
 
   var radice = document.documentElement;
   var motoRidotto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Testo tradotto, con ripiego in italiano se i18n.js non c'è. */
+  function T(chiave, ripiego) {
+    if (window.LucaI18n) {
+      var v = window.LucaI18n.t(chiave);
+      if (v) return v;
+    }
+    return ripiego;
+  }
 
   /* ---------- 1. Tema ------------------------------------------------- */
 
@@ -29,9 +39,15 @@
     var bottone = document.querySelector('[data-tema-toggle]');
     if (bottone) {
       var prossimo = tema === 'scuro' ? 'chiaro' : 'scuro';
-      bottone.setAttribute('aria-label', 'Passa al tema ' + prossimo);
+      bottone.setAttribute('aria-label', prossimo === 'chiaro'
+        ? T('tema.a-chiaro', 'Passa al tema chiaro')
+        : T('tema.a-scuro', 'Passa al tema scuro'));
       var testo = bottone.querySelector('.tema-testo');
-      if (testo) testo.textContent = prossimo === 'chiaro' ? 'Chiaro' : 'Scuro';
+      if (testo) {
+        testo.textContent = prossimo === 'chiaro'
+          ? T('tema.et-chiaro', 'Chiaro')
+          : T('tema.et-scuro', 'Scuro');
+      }
     }
 
     // al primo giro il monogramma non è ancora stato disegnato: ci pensa
@@ -135,8 +151,31 @@
 
   /* Il testo è già nell'HTML (funziona senza JS e per i motori di ricerca):
      lo svuotiamo e lo riscriviamo carattere per carattere. L'altezza delle
-     righe è fissata dal CSS, quindi la pagina non salta. */
+     righe è fissata dal CSS, quindi la pagina non salta.
+     Al cambio lingua non si ridigita: i18n.js riscrive il testo definitivo e
+     qui si mette solo a posto il finale (prompt visibili, cursore in fondo). */
+
   var terminale = document.querySelector('[data-terminale]');
+  var timerTerminale = null;
+
+  function fermaTerminale() {
+    if (timerTerminale) { clearTimeout(timerTerminale); timerTerminale = null; }
+  }
+
+  function chiudiTerminale() {
+    if (!terminale) return;
+    fermaTerminale();
+    var righe = [].slice.call(terminale.querySelectorAll('.t-riga'));
+    righe.forEach(function (riga) {
+      var prompt = riga.querySelector('.t-prompt');
+      if (prompt) prompt.style.visibility = 'visible';
+    });
+    var cursore = terminale.querySelector('.t-cursore');
+    if (cursore && righe.length) {
+      righe[righe.length - 1].appendChild(cursore);
+      cursore.hidden = false;
+    }
+  }
 
   if (terminale && !motoRidotto) {
     var cursore = terminale.querySelector('.t-cursore');
@@ -154,7 +193,7 @@
     var indiceRiga = 0;
     var indiceCarattere = 0;
 
-    function scriviCarattere() {
+    var scriviCarattere = function () {
       if (indiceRiga >= testi.length) { if (cursore) cursore.hidden = false; return; }
       var r = testi[indiceRiga];
 
@@ -168,23 +207,34 @@
         indiceCarattere++;
         // i comandi si «battono», l'output esce più svelto
         var ritmo = r.comando ? 42 + Math.random() * 34 : 14 + Math.random() * 14;
-        setTimeout(scriviCarattere, ritmo);
+        timerTerminale = setTimeout(scriviCarattere, ritmo);
       } else {
         indiceRiga++;
         indiceCarattere = 0;
-        setTimeout(scriviCarattere, r.comando ? 300 : 180);
+        timerTerminale = setTimeout(scriviCarattere, r.comando ? 300 : 180);
       }
-    }
+    };
 
     if (cursore) cursore.hidden = true;
     // parte dopo l'ingresso scaglionato dell'hero
-    setTimeout(function () {
+    timerTerminale = setTimeout(function () {
       if (cursore) cursore.hidden = false;
       scriviCarattere();
     }, 950);
   }
 
-  /* ---------- 4. Sezioni sincronizzate allo scorrimento ---------------- */
+  /* ---------- 4. Cambio lingua ----------------------------------------- */
+
+  /* i18n.js ha già riscritto i testi quando arriva qui: al terminale basta
+     chiudere la digitazione in corso, al bottone del tema rifare l'etichetta. */
+  if (window.LucaI18n) {
+    window.LucaI18n.alCambio(function () {
+      chiudiTerminale();
+      applicaTema(temaCorrente(), false);
+    });
+  }
+
+  /* ---------- 5. Sezioni sincronizzate allo scorrimento ---------------- */
 
   var sezioni = [].slice.call(document.querySelectorAll('[data-sincro] .sezione'));
   var vociNav = [].slice.call(document.querySelectorAll('.nav a'));
@@ -215,7 +265,7 @@
     sezioni.forEach(function (s) { s.classList.add('attiva'); });
   }
 
-  /* ---------- 5. Titoli rivelati all'ingresso nel viewport -------------- */
+  /* ---------- 6. Titoli rivelati all'ingresso nel viewport -------------- */
 
   var daRivelare = [].slice.call(document.querySelectorAll('.rivela'));
 

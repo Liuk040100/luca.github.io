@@ -4,39 +4,62 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Pagina non trovata — Luca Bertaggia</title>
-<meta name="description" content="La pagina cercata non esiste sul sito di Luca Bertaggia.">
+<title data-i18n="404.meta.title">Pagina non trovata — Luca Bertaggia</title>
+<meta name="description" data-i18n-attr="content:404.meta.description" content="La pagina cercata non esiste sul sito di Luca Bertaggia.">
 <meta name="robots" content="noindex">
 <meta name="color-scheme" content="dark light">
 <meta name="theme-color" content="#0F141B">
 
 <meta property="og:type" content="website">
-<meta property="og:locale" content="it_IT">
-<meta property="og:title" content="Pagina non trovata — Luca Bertaggia">
-<meta property="og:description" content="La pagina cercata non esiste.">
+<meta property="og:locale" data-i18n-attr="content:og.locale" content="it_IT">
+<meta property="og:title" data-i18n-attr="content:404.og.title" content="Pagina non trovata — Luca Bertaggia">
+<meta property="og:description" data-i18n-attr="content:404.og.description" content="La pagina cercata non esiste.">
 
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="css/style.css">
 
 <script>
+  /* Stesso preambolo di index.html: tema e lingua prima del primo fotogramma. */
   (function () {
-    document.documentElement.classList.add('js');
+    var d = document.documentElement;
+    d.classList.add('js');
     try {
       var t = localStorage.getItem('luca:tema');
-      document.documentElement.setAttribute('data-tema', t === 'chiaro' ? 'chiaro' : 'scuro');
+      d.setAttribute('data-tema', t === 'chiaro' ? 'chiaro' : 'scuro');
     } catch (e) { /* localStorage negato: resta scuro */ }
+
+    var LINGUE = ['it', 'en', 'es', 'fr', 'de'];
+    var l = null;
+    try { l = localStorage.getItem('luca:lingua'); } catch (e) { /* ignorato */ }
+    if (!l) { l = (navigator.language || 'it').slice(0, 2).toLowerCase(); }
+    if (LINGUE.indexOf(l) === -1) { l = 'it'; }
+    d.setAttribute('lang', l);
+    window.__lucaLingua = l;
   })();
 </script>
-<noscript><style>.tema { display: none; }</style></noscript>
+<noscript><style>.tema, .lingue { display: none; }</style></noscript>
 </head>
 
 <body>
 <header class="testata">
   <div class="gabbia testata-riga">
-    <a class="monogramma" href="./" aria-label="Torna alla home">
+    <a class="monogramma" href="./" data-i18n-attr="aria-label:aria.home" aria-label="Torna alla home">
       <canvas id="monogramma" width="40" height="40" aria-hidden="true"></canvas>
     </a>
-    <button class="tema" type="button" data-tema-toggle aria-label="Passa al tema chiaro" style="margin-left:auto">
+
+    <div class="lingue" role="group" data-i18n-attr="aria-label:aria.lingue" aria-label="Lingua del sito">
+      <button class="lingua" type="button" data-lingua="it" lang="it" aria-label="Italiano" aria-pressed="true">it</button>
+      <span class="lingue-sep" aria-hidden="true">·</span>
+      <button class="lingua" type="button" data-lingua="en" lang="en" aria-label="English" aria-pressed="false">en</button>
+      <span class="lingue-sep" aria-hidden="true">·</span>
+      <button class="lingua" type="button" data-lingua="es" lang="es" aria-label="Español" aria-pressed="false">es</button>
+      <span class="lingue-sep" aria-hidden="true">·</span>
+      <button class="lingua" type="button" data-lingua="fr" lang="fr" aria-label="Français" aria-pressed="false">fr</button>
+      <span class="lingue-sep" aria-hidden="true">·</span>
+      <button class="lingua" type="button" data-lingua="de" lang="de" aria-label="Deutsch" aria-pressed="false">de</button>
+    </div>
+
+    <button class="tema" type="button" data-tema-toggle aria-label="Passa al tema chiaro">
       <svg class="icona-sole" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.6"/><path d="M12 2.4v2.6M12 19v2.6M2.4 12h2.6M19 12h2.6M5.2 5.2l1.9 1.9M16.9 16.9l1.9 1.9M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9"/></svg>
       <svg class="icona-luna" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.2A8.4 8.4 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2z"/></svg>
       <span class="tema-testo">Chiaro</span>
@@ -46,20 +69,21 @@
 
 <main class="pagina-404">
   <div class="gabbia">
-    <p class="etichetta entra entra-1">Errore 404</p>
-    <h1 class="codice-404 entra entra-2">Non c'è.</h1>
-    <p class="testo-404 entra entra-3">Questa pagina non esiste, o non esiste più.
+    <p class="etichetta entra entra-1" data-i18n="404.etichetta">Errore 404</p>
+    <h1 class="codice-404 entra entra-2" data-i18n="404.codice">Non c'è.</h1>
+    <p class="testo-404 entra entra-3" data-i18n="404.testo">Questa pagina non esiste, o non esiste più.
       Nessun dramma: si riparte dalla prima.</p>
-    <p class="entra entra-4"><a class="bottone" href="./">&lt;- Torna alla home</a></p>
+    <p class="entra entra-4"><a class="bottone" href="./"><span aria-hidden="true">&lt;-</span><span data-i18n="404.bottone">Torna alla home</span></a></p>
   </div>
 </main>
 
 <footer class="piede">
   <div class="gabbia piede-riga">
-    <span>© 2026 Luca Bertaggia · fatto a mano, senza tracker</span>
+    <span data-i18n="piede.credits">© 2026 Luca Bertaggia · fatto a mano, senza tracker</span>
   </div>
 </footer>
 
+<script src="js/i18n.js" defer></script>
 <script src="js/main.js" defer></script>
 </body>
 </html>

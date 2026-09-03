@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Luca Bertaggia — product &amp; technical lead</title>
-<meta name="description" content="Luca Bertaggia, product &amp; technical lead. Trasformo processi ripetitivi in software: AI applicata, automazione, sviluppo full-stack. Costruisco fid.ai, l'assistente WhatsApp per professionisti.">
+<title data-i18n="meta.title">Luca Bertaggia — product &amp; technical lead</title>
+<meta name="description" data-i18n-attr="content:meta.description" content="Luca Bertaggia, product &amp; technical lead. Trasformo processi ripetitivi in software: AI applicata, automazione, sviluppo full-stack. Costruisco fid.ai, l'assistente WhatsApp per professionisti.">
 <meta name="author" content="Luca Bertaggia">
 <meta name="color-scheme" content="dark light">
 <meta name="theme-color" content="#0F141B">
@@ -15,10 +15,10 @@
 <!-- og:image: l'immagine 1200x630 non esiste ancora. Quando c'è, togliere il commento:
      <meta property="og:image" content="https://liuk040100.github.io/luca.github.io/anteprima.png"> -->
 <meta property="og:type" content="website">
-<meta property="og:locale" content="it_IT">
+<meta property="og:locale" data-i18n-attr="content:og.locale" content="it_IT">
 <meta property="og:site_name" content="Luca Bertaggia">
-<meta property="og:title" content="Luca Bertaggia — product &amp; technical lead">
-<meta property="og:description" content="Trasformo processi ripetitivi in software: AI applicata, automazione, sviluppo full-stack. Costruisco fid.ai, l'assistente WhatsApp per professionisti.">
+<meta property="og:title" data-i18n-attr="content:og.title" content="Luca Bertaggia — product &amp; technical lead">
+<meta property="og:description" data-i18n-attr="content:og.description" content="Trasformo processi ripetitivi in software: AI applicata, automazione, sviluppo full-stack. Costruisco fid.ai, l'assistente WhatsApp per professionisti.">
 <meta name="twitter:card" content="summary">
 
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -27,33 +27,55 @@
 <link rel="stylesheet" href="css/style.css">
 
 <script>
-  /* Tema deciso prima del primo fotogramma: nessun lampeggio.
-     Scuro di default; il chiaro esiste solo se salvato dall'utente. */
+  /* Tema e lingua decisi prima del primo fotogramma: nessun lampeggio.
+     Scuro di default; il chiaro esiste solo se salvato dall'utente.
+     Italiano di default; le altre lingue solo se salvate o richieste dal browser. */
   (function () {
-    document.documentElement.classList.add('js');
+    var d = document.documentElement;
+    d.classList.add('js');
     try {
       var t = localStorage.getItem('luca:tema');
-      document.documentElement.setAttribute('data-tema', t === 'chiaro' ? 'chiaro' : 'scuro');
+      d.setAttribute('data-tema', t === 'chiaro' ? 'chiaro' : 'scuro');
     } catch (e) { /* localStorage negato: resta scuro */ }
+
+    var LINGUE = ['it', 'en', 'es', 'fr', 'de'];
+    var l = null;
+    try { l = localStorage.getItem('luca:lingua'); } catch (e) { /* ignorato */ }
+    if (!l) { l = (navigator.language || 'it').slice(0, 2).toLowerCase(); }
+    if (LINGUE.indexOf(l) === -1) { l = 'it'; }
+    d.setAttribute('lang', l);
+    window.__lucaLingua = l;
   })();
 </script>
-<noscript><style>.tema { display: none; }</style></noscript>
+<noscript><style>.tema, .lingue { display: none; }</style></noscript>
 </head>
 
 <body>
-<a class="salta-al-contenuto" href="#contenuto">Salta al contenuto</a>
+<a class="salta-al-contenuto" href="#contenuto" data-i18n="skip">Salta al contenuto</a>
 
 <header class="testata">
   <div class="gabbia testata-riga">
-    <a class="monogramma" href="#cima" aria-label="Torna in cima e rianima il monogramma">
+    <a class="monogramma" href="#cima" data-i18n-attr="aria-label:aria.monogramma" aria-label="Torna in cima e rianima il monogramma">
       <canvas id="monogramma" width="40" height="40" aria-hidden="true"></canvas>
     </a>
 
-    <nav class="nav" aria-label="Sezioni della pagina">
-      <a href="#chi-sono">Chi sono</a>
-      <a href="#cosa-costruisco">Cosa costruisco</a>
-      <a href="#scrivimi">Scrivimi</a>
+    <nav class="nav" data-i18n-attr="aria-label:aria.nav" aria-label="Sezioni della pagina">
+      <a href="#chi-sono" data-i18n="sez1.titolo">Chi sono</a>
+      <a href="#cosa-costruisco" data-i18n="sez2.titolo">Cosa costruisco</a>
+      <a href="#scrivimi" data-i18n="sez3.titolo">Scrivimi</a>
     </nav>
+
+    <div class="lingue" role="group" data-i18n-attr="aria-label:aria.lingue" aria-label="Lingua del sito">
+      <button class="lingua" type="button" data-lingua="it" lang="it" aria-label="Italiano" aria-pressed="true">it</button>
+      <span class="lingue-sep" aria-hidden="true">·</span>
+      <button class="lingua" type="button" data-lingua="en" lang="en" aria-label="English" aria-pressed="false">en</button>
+      <span class="lingue-sep" aria-hidden="true">·</span>
+      <button class="lingua" type="button" data-lingua="es" lang="es" aria-label="Español" aria-pressed="false">es</button>
+      <span class="lingue-sep" aria-hidden="true">·</span>
+      <button class="lingua" type="button" data-lingua="fr" lang="fr" aria-label="Français" aria-pressed="false">fr</button>
+      <span class="lingue-sep" aria-hidden="true">·</span>
+      <button class="lingua" type="button" data-lingua="de" lang="de" aria-label="Deutsch" aria-pressed="false">de</button>
+    </div>
 
     <button class="tema" type="button" data-tema-toggle aria-label="Passa al tema chiaro">
       <svg class="icona-sole" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.6"/><path d="M12 2.4v2.6M12 19v2.6M2.4 12h2.6M19 12h2.6M5.2 5.2l1.9 1.9M16.9 16.9l1.9 1.9M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9"/></svg>
@@ -68,34 +90,34 @@
   <!-- ===== Hero ===== -->
   <section class="hero" id="cima">
     <div class="gabbia">
-      <p class="etichetta hero-eyebrow entra entra-1">Product &amp; technical lead · 2026</p>
+      <p class="etichetta hero-eyebrow entra entra-1" data-i18n="hero.eyebrow">Product &amp; technical lead · 2026</p>
 
       <h1 class="hero-titolo">
         <span class="riga entra entra-2">Luca</span>
         <span class="riga cognome entra entra-3">Bertaggia</span>
       </h1>
 
-      <p class="hero-tagline entra entra-4">Trasformo processi ripetitivi in software: AI applicata, automazione, sviluppo full-stack.</p>
+      <p class="hero-tagline entra entra-4" data-i18n="hero.tagline">Trasformo processi ripetitivi in software: AI applicata, automazione, sviluppo full-stack.</p>
 
       <div class="hero-basso">
-        <div class="terminale entra entra-5" role="group" aria-label="Presentazione in forma di terminale">
+        <div class="terminale entra entra-5" role="group" data-i18n-attr="aria-label:aria.terminale" aria-label="Presentazione in forma di terminale">
           <div class="terminale-barra" aria-hidden="true">
             <span class="terminale-punto"></span>
             <span class="terminale-punto"></span>
             <span class="terminale-punto"></span>
-            <span class="terminale-nome">luca — presentazione</span>
+            <span class="terminale-nome" data-i18n="term.nome">luca — presentazione</span>
           </div>
           <div class="terminale-corpo" data-terminale>
-            <p class="t-riga t-cmd"><span class="t-prompt" aria-hidden="true">$</span><span class="t-testo">chi-sono</span></p>
-            <p class="t-riga t-out"><span class="t-testo">Luca Bertaggia — product &amp; technical lead</span></p>
-            <p class="t-riga t-cmd"><span class="t-prompt" aria-hidden="true">$</span><span class="t-testo">dove</span></p>
-            <p class="t-riga t-out"><span class="t-testo">Torino, Italia</span></p>
-            <p class="t-riga t-cmd"><span class="t-prompt" aria-hidden="true">$</span><span class="t-testo">a-cosa-lavoro</span></p>
-            <p class="t-riga t-out"><span class="t-testo">costruisco fid.ai</span><span class="t-cursore"></span></p>
+            <p class="t-riga t-cmd"><span class="t-prompt" aria-hidden="true">$</span><span class="t-testo" data-i18n="term.cmd1">chi-sono</span></p>
+            <p class="t-riga t-out"><span class="t-testo" data-i18n="term.out1">Luca Bertaggia — product &amp; technical lead</span></p>
+            <p class="t-riga t-cmd"><span class="t-prompt" aria-hidden="true">$</span><span class="t-testo" data-i18n="term.cmd2">dove</span></p>
+            <p class="t-riga t-out"><span class="t-testo" data-i18n="term.out2">Torino, Italia</span></p>
+            <p class="t-riga t-cmd"><span class="t-prompt" aria-hidden="true">$</span><span class="t-testo" data-i18n="term.cmd3">a-cosa-lavoro</span></p>
+            <p class="t-riga t-out"><span class="t-testo" data-i18n="term.out3">costruisco fid.ai</span><span class="t-cursore"></span></p>
           </div>
         </div>
 
-        <a class="scorri" href="#chi-sono"><span class="freccia" aria-hidden="true">↓</span> scorri per continuare</a>
+        <a class="scorri" href="#chi-sono"><span class="freccia" aria-hidden="true">↓</span><span data-i18n="scorri">scorri per continuare</span></a>
       </div>
     </div>
   </section>
@@ -105,13 +127,12 @@
 
     <section class="sezione" id="chi-sono" aria-labelledby="titolo-chi-sono">
       <div class="gabbia sezione-griglia">
-        <p class="etichetta sezione-indice"><span>01</span><span>Chi sono</span></p>
+        <p class="etichetta sezione-indice"><span>01</span><span data-i18n="sez1.titolo">Chi sono</span></p>
         <div class="sezione-contenuto">
-          <h2 class="sezione-titolo rivela" id="titolo-chi-sono">Chi sono</h2>
+          <h2 class="sezione-titolo rivela" id="titolo-chi-sono" data-i18n="sez1.titolo">Chi sono</h2>
           <div class="prosa">
-            <!-- SOSTITUIRE con il testo vero: 2 paragrafi brevi, prima persona. -->
-            <p>Vengo dal mondo accademico, dove ho imparato a scrivere codice automatizzando i noiosi processi amministrativi. Adesso sono founder e technical lead di fid.ai e partner di Dotspace.</p>
-            <p>Lavoro sui processi che le persone ripetono a mano: li smonto e li rimonto in flussi automatici. Sull'AI costruisco pipeline RAG e orchestrazione di modelli, ma con una persona che valida quando la posta in gioco è alta. Sicurezza, permessi e dati personali me li guardo prima, non dopo. Scrivo e parlo italiano, spagnolo e inglese.</p>
+            <p data-i18n="bio1">Vengo dal mondo accademico, dove ho imparato a scrivere codice automatizzando i noiosi processi amministrativi. Adesso sono founder e technical lead di fid.ai e partner di Dotspace.</p>
+            <p data-i18n="bio2">Lavoro sui processi che le persone ripetono a mano: li smonto e li rimonto in flussi automatici. Sull'AI costruisco pipeline RAG e orchestrazione di modelli, ma con una persona che valida quando la posta in gioco è alta. Sicurezza, permessi e dati personali me li guardo prima, non dopo. Scrivo e parlo italiano, spagnolo e inglese.</p>
           </div>
         </div>
       </div>
@@ -119,33 +140,32 @@
 
     <section class="sezione" id="cosa-costruisco" aria-labelledby="titolo-cosa-costruisco">
       <div class="gabbia sezione-griglia">
-        <p class="etichetta sezione-indice"><span>02</span><span>Cosa costruisco</span></p>
+        <p class="etichetta sezione-indice"><span>02</span><span data-i18n="sez2.titolo">Cosa costruisco</span></p>
         <div class="sezione-contenuto">
-          <h2 class="sezione-titolo rivela" id="titolo-cosa-costruisco">Cosa costruisco</h2>
+          <h2 class="sezione-titolo rivela" id="titolo-cosa-costruisco" data-i18n="sez2.titolo">Cosa costruisco</h2>
           <div class="prosa">
-            <p>Progetti che porto avanti da solo, dall'idea al server.</p>
+            <p data-i18n="sez2.intro">Progetti che porto avanti da solo, dall'idea al server.</p>
           </div>
           <div class="schede">
             <a class="scheda" href="https://fidai.it" rel="noopener">
               <h3 class="scheda-titolo">fid.ai</h3>
-              <p class="scheda-testo">La tua segreteria digitale e intelligente: gestisce per te le richieste di tutti i tuoi clienti.</p>
+              <p class="scheda-testo" data-i18n="scheda.fidai.testo">La tua segreteria digitale e intelligente: gestisce per te le richieste di tutti i tuoi clienti.</p>
               <span class="scheda-piede">fidai.it -&gt;</span>
             </a>
 
-            <!-- Progetti interni all'Università di Torino: nessun indirizzo pubblico,
-                 quindi schede non cliccabili (div.scheda, senza href). -->
-            <div class="scheda">
-              <h3 class="scheda-titolo">Tirocini UniTO</h3>
-              <p class="scheda-testo">Le pratiche dell'Ufficio Tirocini e della Segreteria fatte in
-                automatico: oltre 600 enti convenzionati, meno lavoro a mano e meno errori.</p>
-              <span class="scheda-piede">Università di Torino</span>
-            </div>
+            <a class="scheda" href="https://www.easybrain.it/" rel="noopener" target="_blank">
+              <h3 class="scheda-titolo">EASY-BRAIN</h3>
+              <p class="scheda-testo" data-i18n="scheda.easybrain.testo">Il no-profit di cui sono socio co-fondatore: una rete di professionisti che accompagna le persone con fragilità.</p>
+              <span class="scheda-piede">easybrain.it -&gt;</span>
+            </a>
 
+            <!-- Dotspace: il sito non è ancora online, quindi la scheda non è cliccabile.
+                 Quando ci sarà, cambiare <div class="scheda"> in
+                 <a class="scheda" href="https://…" rel="noopener" target="_blank"> e </div> in </a>. -->
             <div class="scheda">
-              <h3 class="scheda-titolo">Pass di laurea</h3>
-              <p class="scheda-testo">Web app per le cerimonie di laurea: un pass QR univoco a testa
-                via email e uno scanner che lo valida all'ingresso, in tempo reale su Google Sheets.</p>
-              <span class="scheda-piede">Università di Torino</span>
+              <h3 class="scheda-titolo">Dotspace</h3>
+              <p class="scheda-testo" data-i18n="scheda.dotspace.testo">Lo studio di cui sono partner. Una riga su cosa facciamo arriva a breve.</p>
+              <span class="scheda-piede" data-i18n="scheda.dotspace.piede">dotspace.it — presto</span>
             </div>
           </div>
         </div>
@@ -154,18 +174,34 @@
 
     <section class="sezione" id="scrivimi" aria-labelledby="titolo-scrivimi">
       <div class="gabbia sezione-griglia">
-        <p class="etichetta sezione-indice"><span>03</span><span>Scrivimi</span></p>
+        <p class="etichetta sezione-indice"><span>03</span><span data-i18n="sez3.titolo">Scrivimi</span></p>
         <div class="sezione-contenuto">
-          <h2 class="sezione-titolo rivela" id="titolo-scrivimi">Scrivimi</h2>
+          <h2 class="sezione-titolo rivela" id="titolo-scrivimi" data-i18n="sez3.titolo">Scrivimi</h2>
           <div class="prosa">
-            <p>Il modo più diretto è la posta. Rispondo a tutto quello che non è una proposta
-              di link building.</p>
+            <p data-i18n="sez3.testo">Il modo più diretto è la posta. Rispondo a tutto quello che non è una proposta di link building.</p>
           </div>
-          <a class="contatto collegamento" href="mailto:luca.bertaggia@dotspace.it">luca.bertaggia@dotspace.it</a>
+
+          <a class="contatto" href="mailto:luca.bertaggia@dotspace.it">
+            <svg class="icona" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.75" y="5.25" width="18.5" height="13.5"/><path d="m2.75 6.2 9.25 6.6 9.25-6.6"/></svg>
+            <span class="collegamento">luca.bertaggia@dotspace.it</span>
+          </a>
+
+          <p class="riga-presentazione">
+            <a class="bottone presentazione" href="https://gamma.app/docs/Luca-Bertaggia-Innovazione-automazione-htcu85ashw4fz9i"
+               rel="noopener" target="_blank" data-i18n-attr="href:presentazione.url">
+              <svg class="icona" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.25" width="18" height="11.5"/><path d="M12 15.75V20M8.5 20h7"/></svg>
+              <span data-i18n="presentazione">Conoscimi guardando la mia presentazione</span>
+              <span class="freccia-esterna" aria-hidden="true">-&gt;</span>
+            </a>
+          </p>
 
           <ul class="social">
-            <li><a class="segnaposto collegamento" href="https://github.com/Liuk040100" rel="me noopener">GitHub</a></li>
-            <li><a class="segnaposto collegamento" href="https://www.linkedin.com/in/luca-bertaggia/" rel="me noopener">LinkedIn</a></li>
+            <li><a class="segnaposto" href="https://github.com/Liuk040100" rel="me noopener" target="_blank">
+              <svg class="icona icona-piena" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.9 5.33.9 11.6c0 4.9 3.18 9.06 7.6 10.53.55.1.75-.24.75-.53 0-.26-.01-.96-.02-1.88-3.09.67-3.74-1.49-3.74-1.49-.5-1.28-1.23-1.62-1.23-1.62-1.01-.69.08-.68.08-.68 1.11.08 1.7 1.14 1.7 1.14.99 1.7 2.6 1.21 3.23.93.1-.72.39-1.21.7-1.49-2.47-.28-5.06-1.24-5.06-5.5 0-1.22.43-2.21 1.14-2.99-.11-.28-.5-1.41.11-2.94 0 0 .93-.3 3.05 1.14.88-.25 1.83-.37 2.77-.37.94 0 1.89.13 2.77.37 2.12-1.44 3.05-1.14 3.05-1.14.61 1.53.22 2.66.11 2.94.71.78 1.14 1.77 1.14 2.99 0 4.27-2.6 5.21-5.08 5.49.4.35.76 1.03.76 2.08 0 1.5-.01 2.71-.01 3.08 0 .3.2.65.76.53 4.41-1.47 7.59-5.63 7.59-10.53C23.1 5.33 18.27.5 12 .5z"/></svg>
+              <span class="collegamento">GitHub</span></a></li>
+            <li><a class="segnaposto" href="https://www.linkedin.com/in/luca-bertaggia/" rel="me noopener" target="_blank">
+              <svg class="icona icona-piena" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3.05 9h3.86v12H3.05zM9.3 9h3.7v1.65h.05c.52-.94 1.79-1.93 3.68-1.93 3.94 0 4.67 2.4 4.67 5.52V21h-3.86v-5.86c0-1.4-.03-3.2-2-3.2-2 0-2.31 1.52-2.31 3.1V21H9.3z"/></svg>
+              <span class="collegamento">LinkedIn</span></a></li>
           </ul>
         </div>
       </div>
@@ -176,11 +212,12 @@
 
 <footer class="piede">
   <div class="gabbia piede-riga">
-    <span>© 2026 Luca Bertaggia · fatto a mano, senza tracker</span>
-    <span class="piede-nota"><a href="#cima">Torna in cima</a></span>
+    <span data-i18n="piede.credits">© 2026 Luca Bertaggia · fatto a mano, senza tracker</span>
+    <span class="piede-nota"><a href="#cima" data-i18n="piede.cima">Torna in cima</a></span>
   </div>
 </footer>
 
+<script src="js/i18n.js" defer></script>
 <script src="js/main.js" defer></script>
 </body>
 </html>
