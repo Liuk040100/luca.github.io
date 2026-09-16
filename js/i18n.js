@@ -6,8 +6,9 @@
    -------------
    L'italiano è già scritto nell'HTML: senza JavaScript il sito resta completo
    e leggibile. Questo file tiene il dizionario delle altre quattro lingue e
-   riscrive i testi marcati con `data-i18n` (contenuto) o `data-i18n-attr`
-   (attributi, es. `content:meta.description` o `href:presentazione.url`).
+   riscrive i testi marcati con `data-i18n` (contenuto), `data-i18n-html`
+   (contenuto con un link dentro) o `data-i18n-attr` (attributi, es.
+   `content:meta.description` o `href:presentazione.url`).
 
    La lingua viene decisa dallo script in testa a index.html / 404.html
    (localStorage, poi navigator.language, poi italiano) e messa su
@@ -31,9 +32,9 @@
 
     it: {
       'meta.title': 'Luca Bertaggia — founder & product lead',
-      'meta.description': "Luca Bertaggia, founder & product lead. Progetto software e lo costruisco con l'IA: processi ripetitivi che diventano automatici. Fondatore di fid.ai, l'assistente WhatsApp per professionisti.",
+      'meta.description': "Luca Bertaggia, founder & product lead. Progetto software con l'IA e rendo automatici i processi ripetitivi. Fondatore di fid.ai, l'assistente WhatsApp per professionisti.",
       'og.title': 'Luca Bertaggia — founder & product lead',
-      'og.description': "Progetto software e lo costruisco con l'IA: processi ripetitivi che diventano automatici. Fondatore di fid.ai, l'assistente WhatsApp per professionisti.",
+      'og.description': "Progetto software con l'IA e rendo automatici i processi ripetitivi. Fondatore di fid.ai, l'assistente WhatsApp per professionisti.",
       'og.locale': 'it_IT',
 
       'skip': 'Salta al contenuto',
@@ -49,7 +50,7 @@
       'tema.et-scuro': 'Scuro',
 
       'hero.eyebrow': 'Founder & product lead · 2026',
-      'hero.tagline': "Progetto software e lo costruisco con l'IA: processi ripetitivi che diventano automatici.",
+      'hero.tagline': "Progetto software con l'IA e rendo automatici i processi ripetitivi.",
 
       'term.nome': 'luca — sessione',
       'term.cmd1': 'whoami',
@@ -61,8 +62,8 @@
       'scorri': 'scorri per continuare',
 
       'sez1.titolo': 'Chi sono',
-      'bio1': "Vengo dal mondo accademico, dove ho iniziato ad automatizzare con l'IA i processi amministrativi più noiosi. Adesso sono founder e product lead di fid.ai e socio di Dotspace.",
-      'bio2': "Lavoro sui processi che le persone ripetono a mano: li smonto e li rimonto in flussi automatici. Sull'AI costruisco pipeline RAG e orchestrazione di modelli, ma con una persona che valida quando la posta in gioco è alta. Sicurezza, permessi e dati personali me li guardo prima, non dopo. Scrivo e parlo italiano, spagnolo e inglese.",
+      'bio1': "Vengo dal mondo accademico, dove ho iniziato ad automatizzare con l'IA i processi amministrativi più noiosi. Adesso sono founder e product lead di <a href='https://fidai.it' rel='noopener'>fid.ai</a> e socio di Dotspace.",
+      'bio2': "Lavoro sui sistemi che le persone ripetono a mano: li smonto e li rimonto in flussi autonomi. Il mio obiettivo è ridurre il carico lavorativo superfluo. Realizzo tutto ciò grazie all'IA, a pipeline RAG e all'orchestrazione di LLM. Sicurezza, permessi e dati personali sono sempre al primo posto.",
       'ritratto.alt': 'Luca Bertaggia, ritratto',
 
       'percorso.titolo': 'Percorso',
@@ -72,13 +73,13 @@
       'percorso.t1.testo': "Triennale e magistrale all'Università di Torino (110/110 e 105/110 con dignità di stampa), due Erasmus+ alla Universidad de Almería e una ricerca sul benessere dopo la pandemia, presentata al Convegno SIPI di Padova.",
       'percorso.t2.anno': '2023 — oggi',
       'percorso.t2.titolo': 'Ufficio tirocini, Università di Torino',
-      'percorso.t2.testo': "Oltre 600 enti convenzionati da tenere in ordine. Invece di farlo a mano costruisco i primi automatismi con l'IA: moduli, controlli e archivi cominciano a gestirsi da soli.",
+      'percorso.t2.testo': "Oltre 800 enti convenzionati da tenere in ordine: invece di farlo a mano, ho realizzato i primi automatismi aumentando la qualità del servizio accademico.",
       'percorso.t3.anno': '2025 — oggi',
       'percorso.t3.titolo': 'fid.ai e Dotspace',
       'percorso.t3.testo': "Fondo fid.ai, la segreteria che risponde ai clienti su WhatsApp: dall'idea al server. E divento socio di Dotspace insieme a tre sviluppatori.",
       'percorso.t4.anno': '2026',
       'percorso.t4.titolo': 'Universidad de Concepción, Cile',
-      'percorso.t4.testo': "Borsa dell'Università di Torino per studiare come gestiscono i tirocini dall'altra parte del mondo, e un prototipo per far incontrare studenti e aziende. Intanto studio informatica.",
+      'percorso.t4.testo': "Borsa di mobilità per studiare come gestiscono i tirocini dall'altra parte del mondo e come creare partnership formative.",
 
       'sez2.titolo': 'Cosa costruisco',
       'sez2.intro': "Progetti che porto avanti, dall'idea al server.",
@@ -112,9 +113,9 @@
 
     en: {
       'meta.title': 'Luca Bertaggia — founder & product lead',
-      'meta.description': 'Luca Bertaggia, founder & product lead. I design software and build it with AI: repetitive processes become automatic. Founder of fid.ai, the WhatsApp assistant for independent professionals.',
+      'meta.description': 'Luca Bertaggia, founder & product lead. I design software with AI and make repetitive processes automatic. Founder of fid.ai, the WhatsApp assistant for independent professionals.',
       'og.title': 'Luca Bertaggia — founder & product lead',
-      'og.description': 'I design software and build it with AI: repetitive processes become automatic. Founder of fid.ai, the WhatsApp assistant for independent professionals.',
+      'og.description': 'I design software with AI and make repetitive processes automatic. Founder of fid.ai, the WhatsApp assistant for independent professionals.',
       'og.locale': 'en_US',
 
       'skip': 'Skip to content',
@@ -130,7 +131,7 @@
       'tema.et-scuro': 'Dark',
 
       'hero.eyebrow': 'Founder & product lead · 2026',
-      'hero.tagline': 'I design software and build it with AI: repetitive processes become automatic.',
+      'hero.tagline': 'I design software with AI and make repetitive processes automatic.',
 
       'term.nome': 'luca — session',
       'term.cmd1': 'whoami',
@@ -142,8 +143,8 @@
       'scorri': 'scroll to continue',
 
       'sez1.titolo': 'About me',
-      'bio1': 'I come from academia, where I started automating tedious administrative work with AI. Today I am founder and product lead of fid.ai, and a partner at Dotspace.',
-      'bio2': 'I work on the processes people repeat by hand: I take them apart and put them back together as automated flows. On the AI side I build RAG pipelines and model orchestration, but with a person validating whenever the stakes are high. Security, permissions and personal data I look at up front, not afterwards. I write and speak Italian, Spanish and English.',
+      'bio1': "I come from academia, where I started automating tedious administrative work with AI. Today I am founder and product lead of <a href='https://fidai.it' rel='noopener'>fid.ai</a>, and a partner at Dotspace.",
+      'bio2': 'I work on the systems people repeat by hand: I take them apart and put them back together as autonomous flows. My goal is to cut out unnecessary workload. I do it with AI, RAG pipelines and LLM orchestration. Security, permissions and personal data always come first.',
       'ritratto.alt': 'Luca Bertaggia, portrait',
 
       'percorso.titolo': 'My path',
@@ -153,13 +154,13 @@
       'percorso.t1.testo': 'Bachelor and master at the University of Turin (110/110 and 105/110 with a recommendation for publication), two Erasmus+ stays at the Universidad de Almería and research on well-being after the pandemic, presented at the SIPI conference in Padua.',
       'percorso.t2.anno': '2023 — today',
       'percorso.t2.titolo': 'Internship office, University of Turin',
-      'percorso.t2.testo': 'More than 600 partner organisations to keep in order. Instead of doing it by hand I build my first automations with AI: forms, checks and archives start running themselves.',
+      'percorso.t2.testo': "More than 800 partner organisations to keep in order: instead of doing it by hand, I built the first automations and raised the quality of the service the university offers.",
       'percorso.t3.anno': '2025 — today',
       'percorso.t3.titolo': 'fid.ai and Dotspace',
       'percorso.t3.testo': 'I found fid.ai, the front desk that answers clients on WhatsApp: from the idea to the server. And I become a partner at Dotspace, alongside three developers.',
       'percorso.t4.anno': '2026',
       'percorso.t4.titolo': 'Universidad de Concepción, Chile',
-      'percorso.t4.testo': 'A University of Turin grant to study how internships are managed on the other side of the world, and a prototype to match students with companies. Meanwhile I study computer science.',
+      'percorso.t4.testo': "A mobility grant to study how internships are managed on the other side of the world, and how to build training partnerships.",
 
       'sez2.titolo': 'What I build',
       'sez2.intro': 'Projects I carry forward, from the idea to the server.',
@@ -193,9 +194,9 @@
 
     es: {
       'meta.title': 'Luca Bertaggia — founder & product lead',
-      'meta.description': 'Luca Bertaggia, founder & product lead. Diseño software y lo construyo con la IA: los procesos repetitivos se vuelven automáticos. Fundador de fid.ai, el asistente de WhatsApp para profesionales.',
+      'meta.description': 'Luca Bertaggia, founder & product lead. Diseño software con la IA y hago automáticos los procesos repetitivos. Fundador de fid.ai, el asistente de WhatsApp para profesionales.',
       'og.title': 'Luca Bertaggia — founder & product lead',
-      'og.description': 'Diseño software y lo construyo con la IA: los procesos repetitivos se vuelven automáticos. Fundador de fid.ai, el asistente de WhatsApp para profesionales.',
+      'og.description': 'Diseño software con la IA y hago automáticos los procesos repetitivos. Fundador de fid.ai, el asistente de WhatsApp para profesionales.',
       'og.locale': 'es_ES',
 
       'skip': 'Saltar al contenido',
@@ -211,7 +212,7 @@
       'tema.et-scuro': 'Oscuro',
 
       'hero.eyebrow': 'Founder & product lead · 2026',
-      'hero.tagline': 'Diseño software y lo construyo con la IA: los procesos repetitivos se vuelven automáticos.',
+      'hero.tagline': 'Diseño software con la IA y hago automáticos los procesos repetitivos.',
 
       'term.nome': 'luca — sesión',
       'term.cmd1': 'whoami',
@@ -223,8 +224,8 @@
       'scorri': 'desplázate para continuar',
 
       'sez1.titolo': 'Quién soy',
-      'bio1': 'Vengo del mundo académico, donde empecé a automatizar con la IA los procesos administrativos más tediosos. Hoy soy fundador y product lead de fid.ai y socio de Dotspace.',
-      'bio2': 'Trabajo sobre los procesos que la gente repite a mano: los desmonto y los vuelvo a montar como flujos automáticos. En IA construyo pipelines RAG y orquestación de modelos, pero con una persona que valida cuando hay mucho en juego. La seguridad, los permisos y los datos personales los miro antes, no después. Escribo y hablo italiano, español e inglés.',
+      'bio1': "Vengo del mundo académico, donde empecé a automatizar con la IA los procesos administrativos más tediosos. Hoy soy fundador y product lead de <a href='https://fidai.it' rel='noopener'>fid.ai</a> y socio de Dotspace.",
+      'bio2': 'Trabajo sobre los sistemas que la gente repite a mano: los desmonto y los vuelvo a montar como flujos autónomos. Mi objetivo es reducir la carga de trabajo superflua. Lo consigo gracias a la IA, a los pipelines RAG y a la orquestación de LLM. La seguridad, los permisos y los datos personales están siempre en primer lugar.',
       'ritratto.alt': 'Luca Bertaggia, retrato',
 
       'percorso.titolo': 'Trayectoria',
@@ -234,13 +235,13 @@
       'percorso.t1.testo': 'Grado y máster en la Universidad de Turín (110/110 y 105/110 con mención de publicación), dos estancias Erasmus+ en la Universidad de Almería y una investigación sobre el bienestar tras la pandemia, presentada en el Congreso SIPI de Padua.',
       'percorso.t2.anno': '2023 — hoy',
       'percorso.t2.titolo': 'Oficina de prácticas, Universidad de Turín',
-      'percorso.t2.testo': 'Más de 600 entidades con convenio que mantener en orden. En vez de hacerlo a mano construyo las primeras automatizaciones con la IA: formularios, controles y archivos empiezan a gestionarse solos.',
+      'percorso.t2.testo': "Más de 800 entidades con convenio que mantener en orden: en vez de hacerlo a mano, construí las primeras automatizaciones y mejoré la calidad del servicio académico.",
       'percorso.t3.anno': '2025 — hoy',
       'percorso.t3.titolo': 'fid.ai y Dotspace',
       'percorso.t3.testo': 'Fundo fid.ai, la secretaría que responde a los clientes por WhatsApp: de la idea al servidor. Y me hago socio de Dotspace junto a tres desarrolladores.',
       'percorso.t4.anno': '2026',
       'percorso.t4.titolo': 'Universidad de Concepción, Chile',
-      'percorso.t4.testo': 'Beca de la Universidad de Turín para estudiar cómo gestionan las prácticas al otro lado del mundo, y un prototipo para conectar estudiantes y empresas. Mientras tanto estudio informática.',
+      'percorso.t4.testo': "Beca de movilidad para estudiar cómo gestionan las prácticas al otro lado del mundo y cómo crear alianzas formativas.",
 
       'sez2.titolo': 'Qué construyo',
       'sez2.intro': 'Proyectos que llevo adelante, de la idea al servidor.',
@@ -274,9 +275,9 @@
 
     fr: {
       'meta.title': 'Luca Bertaggia — founder & product lead',
-      'meta.description': "Luca Bertaggia, founder & product lead. Je conçois des logiciels et je les construis avec l'IA : les processus répétitifs deviennent automatiques. Fondateur de fid.ai, l'assistant WhatsApp pour les indépendants.",
+      'meta.description': "Luca Bertaggia, founder & product lead. Je conçois des logiciels avec l'IA et je rends automatiques les processus répétitifs. Fondateur de fid.ai, l'assistant WhatsApp pour les indépendants.",
       'og.title': 'Luca Bertaggia — founder & product lead',
-      'og.description': "Je conçois des logiciels et je les construis avec l'IA : les processus répétitifs deviennent automatiques. Fondateur de fid.ai, l'assistant WhatsApp pour les indépendants.",
+      'og.description': "Je conçois des logiciels avec l'IA et je rends automatiques les processus répétitifs. Fondateur de fid.ai, l'assistant WhatsApp pour les indépendants.",
       'og.locale': 'fr_FR',
 
       'skip': 'Aller au contenu',
@@ -292,7 +293,7 @@
       'tema.et-scuro': 'Sombre',
 
       'hero.eyebrow': 'Founder & product lead · 2026',
-      'hero.tagline': "Je conçois des logiciels et je les construis avec l'IA : les processus répétitifs deviennent automatiques.",
+      'hero.tagline': "Je conçois des logiciels avec l'IA et je rends automatiques les processus répétitifs.",
 
       'term.nome': 'luca — session',
       'term.cmd1': 'whoami',
@@ -304,8 +305,8 @@
       'scorri': 'défiler pour continuer',
 
       'sez1.titolo': 'Qui je suis',
-      'bio1': "Je viens du monde universitaire, où j'ai commencé à automatiser avec l'IA les tâches administratives les plus fastidieuses. Aujourd'hui je suis fondateur et product lead de fid.ai, et associé chez Dotspace.",
-      'bio2': "Je travaille sur les processus que les gens répètent à la main : je les démonte et je les remonte en flux automatiques. Côté IA, je construis des pipelines RAG et de l'orchestration de modèles, mais avec une personne qui valide quand l'enjeu est élevé. Sécurité, permissions et données personnelles, je les regarde avant, pas après. J'écris et je parle italien, espagnol et anglais.",
+      'bio1': "Je viens du monde universitaire, où j'ai commencé à automatiser avec l'IA les tâches administratives les plus fastidieuses. Aujourd'hui je suis fondateur et product lead de <a href='https://fidai.it' rel='noopener'>fid.ai</a>, et associé chez Dotspace.",
+      'bio2': "Je travaille sur les systèmes que les gens répètent à la main : je les démonte et je les remonte en flux autonomes. Mon objectif est de réduire la charge de travail superflue. J'y parviens grâce à l'IA, aux pipelines RAG et à l'orchestration de LLM. La sécurité, les permissions et les données personnelles passent toujours en premier.",
       'ritratto.alt': 'Luca Bertaggia, portrait',
 
       'percorso.titolo': 'Parcours',
@@ -315,13 +316,13 @@
       'percorso.t1.testo': "Licence et master à l'Université de Turin (110/110 et 105/110 avec mention pour publication), deux séjours Erasmus+ à l'Universidad de Almería et une recherche sur le bien-être après la pandémie, présentée au congrès SIPI de Padoue.",
       'percorso.t2.anno': "2023 — aujourd'hui",
       'percorso.t2.titolo': 'Bureau des stages, Université de Turin',
-      'percorso.t2.testo': "Plus de 600 organismes conventionnés à tenir en ordre. Plutôt que de le faire à la main, je construis mes premières automatisations avec l'IA : formulaires, contrôles et archives commencent à se gérer tout seuls.",
+      'percorso.t2.testo': "Plus de 800 organismes conventionnés à tenir à jour : au lieu de le faire à la main, j'ai construit les premières automatisations et amélioré la qualité du service.",
       'percorso.t3.anno': "2025 — aujourd'hui",
       'percorso.t3.titolo': 'fid.ai et Dotspace',
       'percorso.t3.testo': "Je fonde fid.ai, le secrétariat qui répond aux clients sur WhatsApp : de l'idée au serveur. Et je deviens associé de Dotspace, aux côtés de trois développeurs.",
       'percorso.t4.anno': '2026',
       'percorso.t4.titolo': 'Universidad de Concepción, Chili',
-      'percorso.t4.testo': "Bourse de l'Université de Turin pour étudier la gestion des stages à l'autre bout du monde, et un prototype pour mettre en relation étudiants et entreprises. En parallèle, j'étudie l'informatique.",
+      'percorso.t4.testo': "Bourse de mobilité pour étudier comment les stages sont gérés à l'autre bout du monde et comment créer des partenariats de formation.",
 
       'sez2.titolo': 'Ce que je construis',
       'sez2.intro': "Des projets que je mène, de l'idée au serveur.",
@@ -355,9 +356,9 @@
 
     de: {
       'meta.title': 'Luca Bertaggia — founder & product lead',
-      'meta.description': 'Luca Bertaggia, founder & product lead. Ich entwerfe Software und baue sie mit KI: wiederkehrende Abläufe werden automatisch. Gründer von fid.ai, dem WhatsApp-Assistenten für Selbstständige.',
+      'meta.description': 'Luca Bertaggia, founder & product lead. Ich entwerfe Software mit KI und mache wiederkehrende Abläufe automatisch. Gründer von fid.ai, dem WhatsApp-Assistenten für Selbstständige.',
       'og.title': 'Luca Bertaggia — founder & product lead',
-      'og.description': 'Ich entwerfe Software und baue sie mit KI: wiederkehrende Abläufe werden automatisch. Gründer von fid.ai, dem WhatsApp-Assistenten für Selbstständige.',
+      'og.description': 'Ich entwerfe Software mit KI und mache wiederkehrende Abläufe automatisch. Gründer von fid.ai, dem WhatsApp-Assistenten für Selbstständige.',
       'og.locale': 'de_DE',
 
       'skip': 'Zum Inhalt springen',
@@ -373,7 +374,7 @@
       'tema.et-scuro': 'Dunkel',
 
       'hero.eyebrow': 'Founder & product lead · 2026',
-      'hero.tagline': 'Ich entwerfe Software und baue sie mit KI: wiederkehrende Abläufe werden automatisch.',
+      'hero.tagline': 'Ich entwerfe Software mit KI und mache wiederkehrende Abläufe automatisch.',
 
       'term.nome': 'luca — sitzung',
       'term.cmd1': 'whoami',
@@ -385,8 +386,8 @@
       'scorri': 'weiterscrollen',
 
       'sez1.titolo': 'Über mich',
-      'bio1': 'Ich komme aus der Universitätswelt, wo ich angefangen habe, mühsame Verwaltungsabläufe mit KI zu automatisieren. Heute bin ich Gründer und product lead von fid.ai und Partner bei Dotspace.',
-      'bio2': 'Ich arbeite an den Abläufen, die Menschen von Hand wiederholen: Ich zerlege sie und setze sie als automatische Flows wieder zusammen. Bei der KI baue ich RAG-Pipelines und Modell-Orchestrierung, aber mit einem Menschen, der prüft, wenn viel auf dem Spiel steht. Sicherheit, Berechtigungen und personenbezogene Daten schaue ich mir vorher an, nicht hinterher. Ich schreibe und spreche Italienisch, Spanisch und Englisch.',
+      'bio1': "Ich komme aus der Universitätswelt, wo ich angefangen habe, mühsame Verwaltungsabläufe mit KI zu automatisieren. Heute bin ich Gründer und product lead von <a href='https://fidai.it' rel='noopener'>fid.ai</a> und Partner bei Dotspace.",
+      'bio2': 'Ich arbeite an den Systemen, die Menschen von Hand wiederholen: Ich zerlege sie und setze sie als eigenständige Flows wieder zusammen. Mein Ziel ist es, unnötige Arbeitslast zu verringern. Möglich wird das durch KI, RAG-Pipelines und die Orchestrierung von LLMs. Sicherheit, Berechtigungen und personenbezogene Daten stehen immer an erster Stelle.',
       'ritratto.alt': 'Luca Bertaggia, Porträt',
 
       'percorso.titolo': 'Werdegang',
@@ -396,13 +397,13 @@
       'percorso.t1.testo': 'Bachelor und Master an der Universität Turin (110/110 und 105/110 mit Druckempfehlung), zwei Erasmus+-Aufenthalte an der Universidad de Almería und eine Forschungsarbeit über das Wohlbefinden nach der Pandemie, vorgestellt auf dem SIPI-Kongress in Padua.',
       'percorso.t2.anno': '2023 — heute',
       'percorso.t2.titolo': 'Praktikumsbüro, Universität Turin',
-      'percorso.t2.testo': 'Über 600 Partnereinrichtungen, die in Ordnung bleiben müssen. Statt es von Hand zu tun, baue ich meine ersten Automatisierungen mit KI: Formulare, Kontrollen und Archive verwalten sich nach und nach selbst.',
+      'percorso.t2.testo': "Über 800 Partnereinrichtungen, die in Ordnung bleiben müssen: Statt es von Hand zu tun, habe ich die ersten Automatisierungen gebaut und damit die Qualität des akademischen Service verbessert.",
       'percorso.t3.anno': '2025 — heute',
       'percorso.t3.titolo': 'fid.ai und Dotspace',
       'percorso.t3.testo': 'Ich gründe fid.ai, das Sekretariat, das Kunden auf WhatsApp antwortet: von der Idee bis zum Server. Und ich werde Partner bei Dotspace, gemeinsam mit drei Entwicklern.',
       'percorso.t4.anno': '2026',
       'percorso.t4.titolo': 'Universidad de Concepción, Chile',
-      'percorso.t4.testo': 'Stipendium der Universität Turin, um zu sehen, wie Praktika auf der anderen Seite der Welt verwaltet werden, und ein Prototyp, der Studierende und Unternehmen zusammenbringt. Nebenbei studiere ich Informatik.',
+      'percorso.t4.testo': "Mobilitätsstipendium, um zu sehen, wie Praktika auf der anderen Seite der Welt verwaltet werden und wie sich Bildungspartnerschaften aufbauen lassen.",
 
       'sez2.titolo': 'Was ich baue',
       'sez2.intro': 'Projekte, die ich vorantreibe — von der Idee bis zum Server.',
@@ -457,6 +458,15 @@
     for (var i = 0; i < nodi.length; i++) {
       var chiave = nodi[i].getAttribute('data-i18n');
       if (dz[chiave] != null) nodi[i].textContent = dz[chiave];
+    }
+
+    /* Testi che contengono un link (per ora solo bio1): il dizionario porta
+       anche il markup, quindi qui serve innerHTML. Le stringhe stanno in questo
+       file, non arrivano da fuori: nessun testo di terzi finisce nella pagina. */
+    var conHtml = document.querySelectorAll('[data-i18n-html]');
+    for (var h = 0; h < conHtml.length; h++) {
+      var chiaveH = conHtml[h].getAttribute('data-i18n-html');
+      if (dz[chiaveH] != null) conHtml[h].innerHTML = dz[chiaveH];
     }
 
     // attributi: "aria-label:aria.nav" oppure "content:og.title;href:presentazione.url"
