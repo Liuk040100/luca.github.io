@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://liuk040100.github.io/luca.github.io/nuovo/sitemap.xml
+Sitemap: https://liuk040100.github.io/luca.github.io/sitemap.xml
