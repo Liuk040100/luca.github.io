@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="it" data-type="service" data-radius="soft" data-buttons="arrow" data-motion>
+<html lang="it" data-type="service" data-radius="soft" data-buttons="arrow" data-ground="sky" data-motion>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Luca Bertaggia: software con l'IA da Torino</title>
+<title>Luca Bertaggia: software personalizzati e automazioni</title>
 <meta name="description" content="Founder e product lead di fid.ai e socio di Dotspace: progetto software con l'IA che rende automatici i processi ripetitivi.">
 <meta name="robots" content="noindex">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Luca Bertaggia: software con l'IA da Torino">
+<meta property="og:title" content="Luca Bertaggia: software personalizzati e automazioni">
 <meta property="og:description" content="Progetto software con l'IA e rendo automatici i processi ripetitivi.">
 <meta property="og:image" content="share.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -19,6 +19,8 @@
 <link rel="preload" href="fonts/red-hat-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/red-hat-text-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/system.css">
+<link rel="stylesheet" href="assets/ui/base.css">
+<link rel="stylesheet" href="assets/ui/pipeline-board/fragment.css">
 <link rel="stylesheet" href="assets/ui/cards.css">
 <link rel="stylesheet" href="assets/motion/motion.css">
 <link rel="stylesheet" href="assets/layout/layout.css">
@@ -36,8 +38,49 @@
   --display-tracking: -0.025em;
   --display-tracking-xl: -0.035em;
 }
-/* page CSS inside a visual: the portrait's frame lower on a tablet, so "Chi sono" stays one screen there */
-@media (min-width: 640px) and (max-width: 1023px) { #chi-sono .frame { --ratio: 60%; } }
+.hero__lead a { font-weight: 500; text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 4px; transition: text-decoration-color var(--dur) var(--ease); }
+.hero__lead a:hover { text-decoration-color: currentColor; }
+@media (max-width: 639px) {
+  #top .hero--photo { --photo: 33svh; }
+  #top .hero--photo .hero__text > * + * { margin-top: var(--s-4); }
+  #top .hero--photo .hero__text > .btn-row { margin-top: var(--s-5); }
+}
+@media (min-width: 640px) and (max-width: 1023px) and (orientation: portrait) {
+  #top .hero--photo { --photo: min(52svh, 72vw); }
+}
+@media (min-width: 1024px) and (max-height: 820px) {
+  #top .hero--photo:not([data-box="none"]) .hero__text { padding: var(--s-6); }
+  #top .hero--photo .hero__text > * + * { margin-top: var(--s-4); }
+  #top .hero--photo .hero__text > .btn-row { margin-top: var(--s-5); }
+  #progetti .section-head { margin-bottom: var(--s-4); }
+  #progetti .rows > li { padding-block: 10px; }
+}
+@media (min-width: 640px) and (max-width: 810px) {
+  footer#contact .closing__cta > .btn--xl { width: 100%; max-width: none; }
+}
+#chi-sono .card > .panel--inset:first-child {
+  margin-top: calc(var(--c-gap) - var(--c-pad)); --p-h: 484px; --calm: #e8eef4; --calm-k: 45%;
+  background-color: var(--ground-bg, #c6d3df);
+  background-image:
+    radial-gradient(70% 90% at 12% 0%, color-mix(in oklab, var(--ground-surface, #d6e0e9) 92%, white), transparent 70%),
+    radial-gradient(60% 80% at 100% 100%, color-mix(in oklab, var(--ground-accent, #3f6a92) 26%, var(--ground-bg, #c6d3df)), transparent 72%);
+}
+#chi-sono .ui-pipe {
+  --u-muted: color-mix(in oklab, var(--u-ink) 76%, var(--u-bg));
+  --u-soft: color-mix(in oklab, var(--u-ink) 72%, var(--u-bg));
+}
+#chi-sono .ui-pipe .ui-avatar { background: var(--u-fill-3); color: var(--u-ink); }
+@media (max-width: 1023px) {
+  #chi-sono .grid { row-gap: var(--s-7); }
+  #chi-sono .card > .panel--inset:first-child { --p-h: 344px; }
+}
+@media (max-width: 639px) {
+  #chi-sono .card > .panel--inset:first-child { --p-h: 510px; }
+}
+@container ui-pipe (max-width: 460px) {
+  .ui-pipe .ui-pipe__step { grid-template-columns: 18px minmax(0, 1fr) auto; }
+  .ui-pipe .ui-pipe__cmd { display: none; }
+}
 </style>
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
 <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
@@ -75,8 +118,8 @@
     <img class="hero__bg" src="img/luca-hero-2560.webp" srcset="img/luca-hero-800.webp 800w, img/luca-hero-1600.webp 1600w, img/luca-hero-2560.webp 2560w" sizes="(max-width: 639px) 390px, 100vw" width="2560" height="1600" alt="Luca Bertaggia a braccia conserte, camicia azzurra e occhiali, su fondo bianco" style="--ly-pos: 70% 30%; --ly-pos-phone: 50% 20%" fetchpriority="high" data-source="client" data-subject="Luca Bertaggia">
     <div class="wrap"><div class="hero-text">
       <div class="hero__text">
-        <h1 id="hero-h">Software con l'IA, da Torino</h1>
-        <p class="hero__lead">Sono Luca Bertaggia, dal 2025 founder e product lead di fid.ai. Progetto software con l'IA e rendo automatici i processi ripetitivi.</p>
+        <h1 id="hero-h">Software personalizzati e automazioni</h1>
+        <p class="hero__lead">Sono Luca Bertaggia, dal 2025 founder e product lead di <a href="https://fidai.it">fid.ai</a> e socio di <a href="https://dotspace.it">DotSpace</a>: con il nostro team di sviluppatori progettiamo software su misura che snellisce i processi aziendali e rende automatico il lavoro ripetitivo.</p>
         <div class="btn-row"><a class="btn btn--primary" href="mailto:luca.bertaggia@dotspace.it">Scrivimi<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a><a class="btn btn--secondary" href="../Luca-Bertaggia-IT-Italiano.pdf">Scarica la presentazione</a></div>
       </div>
     </div></div>
@@ -87,14 +130,54 @@
       <div class="span-5">
         <div class="section-head"><h2 id="chi-h">Meno lavoro ripetuto a mano</h2></div>
         <div class="stack-4">
-          <p class="t-lead">Vengo dal mondo accademico, dove ho iniziato ad automatizzare con l'IA i processi amministrativi più noiosi. Oggi sono founder e product lead di fid.ai e socio di Dotspace.</p>
-          <p>Smonto i sistemi che le persone ripetono a mano e li rimonto in flussi autonomi, per togliere lavoro superfluo. Uso IA, pipeline RAG e orchestrazione di LLM.</p>
+          <p class="t-lead">Vengo dal mondo accademico, dove ho iniziato ad automatizzare con l'IA i processi amministrativi più noiosi. Oggi mi occupo di smontare i sistemi che le persone ripetono a mano e rimontarli in flussi autonomi, per togliere lavoro superfluo.</p>
+          <p>Uso IA, pipeline RAG e orchestrazione di LLM.</p>
           <p>Sicurezza, permessi e dati personali vengono sempre al primo posto.</p>
           <p><a class="link" href="#percorso">Leggi il percorso</a></p>
         </div>
       </div>
-      <div class="frame frame--photo frame--split frame--fill fill span-6 start-7">
-        <img class="frame__img" src="img/luca-ritratto-1280.webp" srcset="img/luca-ritratto-400p.webp 400w, img/luca-ritratto-1280.webp 1280w" sizes="(max-width: 639px) 342px, (max-width: 1023px) 100vw, 628px" width="1280" height="1024" alt="Luca Bertaggia in piedi con le mani in tasca, sorridente" loading="lazy" decoding="async" style="object-position: 50% 20%" data-source="client" data-subject="Luca Bertaggia">
+      <div class="card m-nolift span-6 start-7" data-ui-still>
+        <div class="panel panel--inset">
+          <div class="stage">
+            <div class="at-rise fit" style="--ax:32px;--ay:84px;--ay-sm:108px;--fit-max:540px">
+              <div class="ui ui-panel ui-pipe" data-ui="pipeline-board">
+                <div class="ui-pipe__head">
+                  <svg class="ui-icon ui-pipe__branch" viewBox="0 0 16 16" aria-hidden="true"><circle cx="4.5" cy="3.5" r="1.5"/><circle cx="4.5" cy="12.5" r="1.5"/><circle cx="11.5" cy="5" r="1.5"/><path d="M4.5 5v6M11.5 6.5c0 2.6-2.2 3.6-5.6 4.6"/></svg>
+                  <span class="ui-pipe__repo">flussi/automazione</span><i class="ui-pipe__slash">/</i><code class="ui-pipe__ref">produzione</code>
+                  <span class="ui-pipe__run">#6000</span>
+                  <span class="ui-spacer"></span>
+                  <span class="ui-pipe__total"><svg class="ui-icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8.5" r="5.5"/><path d="M8 5.5v3l2 1.25M6.5 1.75h3"/></svg><span data-pipe-total>3.8s</span></span>
+                  <span class="ui-chip ui-chip--ink ui-chip--live ui-pipe__chip" data-pipe-chip data-done="Completato">Attivo</span>
+                </div>
+                <div class="ui-pipe__commit">
+                  <span class="ui-avatar" data-tone="4">LB</span>
+                  <span class="ui-pipe__msg">Pratica manuale -&gt; flusso autonomo</span>
+                  <code class="ui-pipe__sha">rag-gdpr</code>
+                  <button class="ui-btn ui-btn--ghost ui-btn--sm ui-pipe__btn" type="button" tabindex="-1" data-pipe-btn data-done="Riesegui">Ferma</button>
+                </div>
+                <ol class="ui-pipe__steps">
+                  <li class="ui-pipe__step is-done" data-step="raccolta"><span class="ui-pipe__ico"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-pipe__name"><span class="ui-pipe__tool" aria-hidden="true"><img data-icon="gmail" src="assets/icons/gmail.svg" width="13" height="13" loading="lazy" decoding="async" alt=""></span><span class="ui-pipe__nm">Raccolta</span></span><code class="ui-pipe__cmd">35 GB email · record normalizzati</code><span class="ui-pipe__time" data-time>0.6s</span><span class="ui-pipe__bar"><i></i></span></li>
+                  <li class="ui-pipe__step is-done" data-step="gdpr"><span class="ui-pipe__ico"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-pipe__name"><span class="ui-pipe__tool" aria-hidden="true"><img data-icon="python" src="assets/icons/python.svg" width="13" height="13" loading="lazy" decoding="async" alt=""></span><span class="ui-pipe__nm">Filtro GDPR</span></span><code class="ui-pipe__cmd">anonimizzazione dati personali</code><span class="ui-pipe__time" data-time>0.8s</span><span class="ui-pipe__bar"><i></i></span></li>
+                  <li class="ui-pipe__step is-run" data-step="rag" style="--k:0.6"><span class="ui-pipe__ico"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-pipe__name"><span class="ui-pipe__tool" aria-hidden="true"><img data-icon="postgres" src="assets/icons/postgres.svg" width="13" height="13" loading="lazy" decoding="async" alt=""></span><span class="ui-pipe__nm">Pipeline RAG</span></span><code class="ui-pipe__cmd">85 regole operative estratte</code><span class="ui-pipe__time" data-time="1.1s">0.7s</span><span class="ui-pipe__bar"><i></i></span></li>
+                  <li class="ui-pipe__step" data-step="llm"><span class="ui-pipe__ico"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-pipe__name"><span class="ui-pipe__tool" aria-hidden="true"><img data-icon="docker" src="assets/icons/docker.svg" width="13" height="13" loading="lazy" decoding="async" alt=""></span><span class="ui-pipe__nm">Router LLM</span></span><code class="ui-pipe__cmd">classifica ed esegue pratica</code><span class="ui-pipe__time" data-time="0.9s">In coda</span><span class="ui-pipe__bar"><i></i></span></li>
+                  <li class="ui-pipe__step" data-step="consegna"><span class="ui-pipe__ico"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-pipe__name"><span class="ui-pipe__tool" aria-hidden="true"><img data-icon="google-calendar" src="assets/icons/google-calendar.svg" width="13" height="13" loading="lazy" decoding="async" alt=""></span><span class="ui-pipe__nm">Consegna</span></span><code class="ui-pipe__cmd">documento pronto e archiviato</code><span class="ui-pipe__time" data-time="0.4s">In coda</span><span class="ui-pipe__bar"><i></i></span></li>
+                </ol>
+                <div class="ui-pipe__log" aria-hidden="true">
+                  <span class="ui-pipe__line" data-step="raccolta"><b>$</b>sync gmail --archivio 35GB</span>
+                  <span class="ui-pipe__line" data-step="raccolta">normalizzati 6.000 record in ingresso</span>
+                  <span class="ui-pipe__line" data-step="gdpr"><b>$</b>python filtro_gdpr.py --strict</span>
+                  <span class="ui-pipe__line" data-step="gdpr">dati personali anonimizzati prima dell'indice</span>
+                  <span class="ui-pipe__line is-on" data-step="rag"><b>$</b>rag-index --fonti postgres</span>
+                  <span class="ui-pipe__line is-on" data-step="rag">estratte 85 regole operative verificate</span>
+                  <span class="ui-pipe__line" data-step="llm"><b>$</b>docker exec router-llm --pratica</span>
+                  <span class="ui-pipe__line" data-step="llm">pratica classificata ed eseguita in sicurezza</span>
+                  <span class="ui-pipe__line" data-step="consegna"><b>$</b>calendar-sync --archivia</span>
+                  <span class="ui-pipe__line" data-step="consegna">documento pronto, verifica permessi completata</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -102,33 +185,33 @@
   <section class="section statement" id="whoami" data-moment="word-highlight" aria-label="In breve">
     <div class="wrap">
       <p class="t-label">whoami</p>
-      <p class="mo-wh__text">Costruisco software che fa <strong>il lavoro noioso</strong> al posto delle persone. Lavoro a Torino, con un server acceso h24. Adesso insegno a una segreteria a rispondere ai clienti da sola: si chiama fid.ai.</p>
+      <p class="mo-wh__text">Detesto il lavoro ripetitivo e promuovo la delega a <strong>sistemi esperti personalizzati</strong>. Lavoro da remoto proteggendo i dati dei clienti: server dedicati in Europa, conformità al GDPR, permessi granulari e rispetto dell'AI Act.</p>
     </div>
   </section>
 
   <section class="section" id="percorso" data-moment="photo-chapters" aria-labelledby="percorso-h">
     <div class="wrap mo-ph">
-      <div class="mo-ph__head"><h2 id="percorso-h">Il percorso, dall'università a fid.ai</h2><p>Dalla ricerca all'ufficio tirocini, poi un'azienda mia e una borsa di mobilità in Cile. <a class="link" href="../Luca-Bertaggia-IT-Italiano.pdf">Scarica la presentazione</a></p></div>
+      <div class="mo-ph__head"><h2 id="percorso-h">Il mio percorso: dallo sport al mondo dei pc</h2><p>Nasco come atleta professionista, ottengo un doppio titolo universitario sul tema, poi vinco una borsa di ricerca di quattro anni in UniTO e scopro ciò che mi appassiona: studiare i processi aziendali per semplificare i flussi lavorativi. <a class="link" href="../Luca-Bertaggia-IT-Italiano.pdf">Scarica la presentazione</a></p></div>
       <ol class="mo-ph__list">
         <li class="mo-ph__ch">
-          <figure class="mo-ph__pic"><img src="img/photo-f89289298-1920.webp" srcset="img/photo-f89289298-720p.webp 720w, img/photo-f89289298-960.webp 960w, img/photo-f89289298-1920.webp 1920w" sizes="(max-width: 639px) 342px, (max-width: 1023px) 100vw, 1280px" alt="Torino dall'alto, con le Alpi innevate sullo sfondo" width="1920" height="1280" data-source="stand-in" data-subject="Torino" loading="lazy" decoding="async"></figure>
+          <figure class="mo-ph__pic"><img src="img/photo-f181245784-1920.webp" srcset="img/photo-f181245784-720.webp 720w, img/photo-f181245784-960.webp 960w, img/photo-f181245784-1920.webp 1920w" sizes="(max-width: 639px) 720px, (max-width: 1023px) 1360px, 1280px" alt="Pista azzurra e tribuna dello Stadio Primo Nebiolo a Torino" width="1920" height="1280" data-source="stand-in" data-subject="atletica" loading="lazy" decoding="async"></figure>
           <h3>2016–2022: Scienze motorie a Torino</h3>
           <p>Triennale con 110/110, magistrale con 105/110 e dignità di stampa, due Erasmus+ all'Universidad de Almería e una ricerca sul benessere dopo la pandemia, presentata al Convegno SIPI di Padova.</p>
         </li>
         <li class="mo-ph__ch">
-          <figure class="mo-ph__pic"><img src="img/photo-f106434183-1920.webp" srcset="img/photo-f106434183-720p.webp 720w, img/photo-f106434183-960.webp 960w, img/photo-f106434183-1920.webp 1920w" sizes="(max-width: 639px) 342px, (max-width: 1023px) 100vw, 1280px" alt="Il Campus Luigi Einaudi dell'Università di Torino, facciata curva in vetro" width="1920" height="1280" data-source="stand-in" data-subject="Università di Torino" loading="lazy" decoding="async"></figure>
-          <h3>Dal 2023: ufficio tirocini dell'Università di Torino</h3>
-          <p>Oltre 800 enti convenzionati. Invece di gestirli a mano ho realizzato i primi automatismi, e la qualità del servizio è salita.</p>
+          <figure class="mo-ph__pic"><img src="img/photo-f106434183-1920.webp" srcset="img/photo-f106434183-720p.webp 720w, img/photo-f106434183-960.webp 960w, img/photo-f106434183-1920.webp 1920w" sizes="(max-width: 639px) 720px, (max-width: 1023px) 1360px, 1280px" alt="Il Campus Luigi Einaudi dell'Università di Torino, facciata curva in vetro" width="1920" height="1280" data-source="stand-in" data-subject="Università di Torino" loading="lazy" decoding="async"></figure>
+          <h3>2023–2027: ufficio tirocini dell'Università di Torino</h3>
+          <p>Oltre 800 enti convenzionati e 6.000 pratiche automatizzate. Grazie a questo progetto di digitalizzazione avvio una partnership internazionale con l'Universidad de Concepción, in Cile, per condividere il modello sui flussi formativi.</p>
         </li>
         <li class="mo-ph__ch">
-          <figure class="mo-ph__pic"><img src="img/photo-f65122033-1920.webp" srcset="img/photo-f65122033-720p.webp 720w, img/photo-f65122033-960.webp 960w, img/photo-f65122033-1920.webp 1920w" sizes="(max-width: 639px) 342px, (max-width: 1023px) 100vw, 1280px" alt="Armadi di server aperti in una sala tecnica" width="1920" height="1280" data-source="stand-in" data-subject="server" loading="lazy" decoding="async"></figure>
-          <h3>Dal 2025: fid.ai e Dotspace</h3>
-          <p>Fondo fid.ai e lo porto dall'idea al server. Divento socio di Dotspace, con tre sviluppatori.</p>
+          <figure class="mo-ph__pic"><img src="img/fidai-bozze-1600.webp" srcset="img/fidai-bozze-720.webp 720w, img/fidai-bozze-960.webp 960w, img/fidai-bozze-1600.webp 1600w" sizes="(max-width: 639px) 750px, (max-width: 1023px) 1360px, 1280px" alt="Schermata delle bozze di risposta preparate dall'intelligenza artificiale di fid.ai" width="1600" height="1000" data-source="client" data-subject="fid.ai" loading="lazy" decoding="async"></figure>
+          <h3>Dal 2025: fid.ai</h3>
+          <p>Fondo fid.ai e la porto dall'idea al server: una segreteria AI su WhatsApp per professionisti che trascrive i vocali in Europa, prepara le bozze di risposta e fissa gli appuntamenti su Google Calendar.</p>
         </li>
         <li class="mo-ph__ch">
-          <figure class="mo-ph__pic"><img src="img/photo-f13317329-1600.webp" srcset="img/photo-f13317329-720p.webp 720w, img/photo-f13317329-960.webp 960w, img/photo-f13317329-1600.webp 1600w" sizes="(max-width: 639px) 342px, (max-width: 1023px) 100vw, 1280px" alt="La biblioteca dell'Universidad de Concepción tra gli alberi del campus" width="1600" height="1067" data-source="stand-in" data-subject="Universidad de Concepción" loading="lazy" decoding="async"></figure>
-          <h3>2026: Universidad de Concepción, Cile</h3>
-          <p>Una borsa di mobilità per studiare come gestiscono i tirocini e come creare partnership formative.</p>
+          <figure class="mo-ph__pic"><img src="img/photo-f65122033-1920.webp" srcset="img/photo-f65122033-720p.webp 720w, img/photo-f65122033-960.webp 960w, img/photo-f65122033-1920.webp 1920w" sizes="(max-width: 639px) 720px, (max-width: 1023px) 1360px, 1280px" alt="Armadi di server aperti in una sala tecnica" width="1920" height="1280" data-source="stand-in" data-subject="server" loading="lazy" decoding="async"></figure>
+          <h3>2026: DotSpace</h3>
+          <p>Divento socio di DotSpace insieme a quattro sviluppatori: una squadra di cinque persone che progetta software su misura, integrazioni IA e automazioni per snellire il lavoro di aziende e professionisti.</p>
         </li>
       </ol>
     </div>
