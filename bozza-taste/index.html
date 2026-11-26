@@ -21,10 +21,6 @@
 <link rel="stylesheet" href="assets/system.css">
 <link rel="stylesheet" href="assets/ui/base.css">
 <link rel="stylesheet" href="assets/ui/pipeline-board/fragment.css">
-<link rel="stylesheet" href="assets/ui/chat/fragment.css">
-<link rel="stylesheet" href="assets/ui/calendar/fragment.css">
-<link rel="stylesheet" href="assets/ui/checklist/fragment.css">
-<link rel="stylesheet" href="assets/ui/terminal-run/fragment.css">
 <link rel="stylesheet" href="assets/ui/cards.css">
 <link rel="stylesheet" href="assets/motion/motion.css">
 <link rel="stylesheet" href="assets/layout/layout.css">
@@ -57,10 +53,8 @@
   #top .hero--photo .hero__text > * + * { margin-top: var(--s-4); }
   #top .hero--photo .hero__text > .btn-row { margin-top: var(--s-5); }
   #progetti .section-head { margin-bottom: var(--s-4); }
-  #progetti .rows > li { padding-block: 10px; }
-}
-@media (min-width: 640px) and (max-width: 810px) {
-  footer#contact .closing__cta > .btn--xl { width: 100%; max-width: none; }
+  #percorso.is-live > .mo-ph { padding-top: calc(var(--nav, 72px) + var(--s-4)); padding-bottom: var(--s-4); gap: var(--s-4); }
+  #percorso.is-live .mo-ph__panel { padding: var(--s-5); gap: var(--s-3); }
 }
 #chi-sono .card > .panel--inset:first-child {
   margin-top: calc(var(--c-gap) - var(--c-pad)); --p-h: 484px; --calm: #e8eef4; --calm-k: 45%;
@@ -74,15 +68,86 @@
   --u-soft: color-mix(in oklab, var(--u-ink) 72%, var(--u-bg));
 }
 #chi-sono .ui-pipe .ui-avatar { background: var(--u-fill-3); color: var(--u-ink); }
-#contact .closing__cta { display: flex; flex-direction: column; align-items: flex-start; }
-#contact .closing__cta .closing__btns { display: flex; flex-direction: row; flex-wrap: nowrap; gap: var(--s-4); align-items: center; }
-#contact .closing__cta .closing__tagline { margin-top: auto; padding-top: var(--s-7); color: var(--muted); font-size: 1rem; }
+#contact .closing__cta { display: flex; flex-direction: column; align-items: stretch; gap: var(--s-4); }
+#contact .closing__row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-4) var(--s-6); }
+#contact .closing__row h2 { margin: 0; max-width: none; }
+#contact .closing__cta .closing__btns { display: flex; flex-direction: row; flex-wrap: wrap; gap: var(--s-4); align-items: center; width: auto; }
+#contact .closing__cta .closing__tagline { margin: 0; color: var(--muted); font-size: var(--t-lead); line-height: 1.4; }
+#contact .closing__links { padding-top: var(--s-7); border-top: 1px solid var(--line); }
+@media (min-width: 640px) {
+  #progetti > .wrap { display: flex; flex-direction: column; }
+  #progetti .proj-grid { flex: 1 1 auto; align-content: stretch; }
+}
+@media (min-width: 1024px) {
+  html:not([data-motion="off"]) #progetti .proj-card:has(a):hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in oklab, var(--ink) 16%, transparent);
+  }
+}
+#progetti .section-head { margin-bottom: var(--s-5); }
+#progetti .proj-grid { align-items: stretch; row-gap: var(--s-4); }
+#progetti .proj-card { padding: 24px 28px; justify-content: space-between; gap: var(--s-3); }
+#progetti .proj-card__body { display: grid; gap: 6px; }
+#progetti .proj-card__role { font-size: var(--t-small); font-weight: 500; color: var(--muted); margin: 0; }
+#progetti .proj-card__body h3 { margin: 0; font-family: var(--font-text); font-weight: 560; font-size: 20px; line-height: 26px; letter-spacing: -0.012em; color: var(--ink); }
+#progetti .proj-card__body p { margin: 0; font-size: 16px; line-height: 24px; color: var(--c-text); max-width: 48ch; }
+#progetti .proj-card__link { margin-top: 2px; }
+#progetti .proj-card__band {
+  margin-top: auto; padding-top: var(--s-3); border-top: 1px solid var(--line);
+  min-height: 104px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-3);
+}
+#progetti .proj-card__icons { display: flex; align-items: center; gap: var(--s-2); }
+#progetti .proj-card__tile {
+  width: 40px; height: 40px; border-radius: 10px; background: #f1f3f5;
+  display: grid; place-items: center; padding: 7px; box-sizing: border-box;
+}
+#progetti .proj-card__tile img { width: 100%; height: 100%; object-fit: contain; display: block; }
+#progetti .proj-card__glyph {
+  width: 40px; height: 40px; border-radius: 10px; background: color-mix(in oklab, var(--ink) 8%, transparent);
+  color: var(--ink); display: grid; place-items: center;
+}
+#progetti .proj-card__tags { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+#progetti .proj-card__tag {
+  display: inline-flex; align-items: center; min-height: 28px; padding: 0 10px; border-radius: 999px;
+  background: color-mix(in oklab, var(--ink) 7%, transparent); color: var(--ink);
+  font-size: 13px; line-height: 18px; font-weight: 500;
+}
+@media (min-width: 640px) and (max-width: 1023px) {
+  #contact .closing__links .footer__col { grid-column: auto / span 4; }
+  #contact .closing__links { gap: var(--s-8); }
+  #contact .closing__links > .grid { row-gap: var(--s-8); }
+}
 @media (max-width: 1023px) {
   #chi-sono .grid { row-gap: var(--s-7); }
   #chi-sono .card > .panel--inset:first-child { --p-h: 344px; }
 }
 @media (max-width: 639px) {
   #chi-sono .card > .panel--inset:first-child { --p-h: 510px; }
+  #percorso.is-live > .mo-ph {
+    padding-top: calc(var(--nav, 56px) + var(--s-3));
+    padding-bottom: calc(var(--s-3) + var(--bar, 0px));
+    gap: var(--s-3);
+  }
+  #percorso.is-live .mo-ph__head { gap: var(--s-2); }
+  #percorso.is-live .mo-ph__head h2 { font-size: clamp(24px, 6.4vw, 30px); line-height: 1.1; }
+  #percorso.is-live .mo-ph__head p { font-size: 16px; line-height: 1.38; }
+  #percorso.is-live .mo-ph__panel {
+    left: var(--s-2); right: var(--s-2); bottom: var(--s-2);
+    padding: var(--s-3) var(--s-4); gap: 6px;
+  }
+  #percorso.is-live .mo-ph__ch h3 { font-size: 20px; line-height: 1.15; }
+  #percorso.is-live .mo-ph__ch p { font-size: 16px; line-height: 1.35; }
+  #percorso.is-live .mo-ph__words { gap: 4px; }
+  #percorso .mo-ph__stage > .mo-ph__pic:nth-child(3) > img { object-position: 74% 42%; }
+  #percorso .mo-ph__stage > .mo-ph__pic:nth-child(4) > img { object-position: 66% 42%; }
+  #progetti .proj-card { padding: 24px; }
+  #progetti .proj-card__band { min-height: 80px; }
+  #contact.footer.closing { padding-block: var(--s-5) var(--s-4); }
+  #contact.footer.closing > .wrap { row-gap: var(--s-4); }
+  #contact .closing__cta { gap: var(--s-2); }
+  #contact .closing__links { padding-top: var(--s-4); gap: var(--s-4); }
+  #contact .closing__links > .grid { row-gap: var(--s-4); }
+  #contact .closing__cta .closing__tagline { font-size: 1rem; padding-top: 0; padding-bottom: 0; }
 }
 @container ui-pipe (max-width: 460px) {
   .ui-pipe .ui-pipe__step { grid-template-columns: 18px minmax(0, 1fr) auto; }
@@ -211,7 +276,7 @@
           <p>Oltre 800 enti convenzionati e 6.000 pratiche automatizzate. Grazie a questo progetto di digitalizzazione avvio una partnership internazionale con l'Universidad de Concepción, in Cile, per condividere il modello sui flussi formativi.</p>
         </li>
         <li class="mo-ph__ch">
-          <figure class="mo-ph__pic"><img src="img/fidai-collage-1920.webp" srcset="img/fidai-collage-720.webp 720w, img/fidai-collage-960.webp 960w, img/fidai-collage-1920.webp 1920w" sizes="(max-width: 639px) 750px, (max-width: 1023px) 1360px, 1280px" alt="Interfaccia desktop delle conversazioni e schermata mobile delle bozze AI di fid.ai" width="1920" height="1280" data-source="client" data-subject="fid.ai" loading="lazy" decoding="async"></figure>
+          <figure class="mo-ph__pic"><img src="img/fidai-stage-1920.webp" srcset="img/fidai-stage-720.webp 720w, img/fidai-stage-960.webp 960w, img/fidai-stage-1920.webp 1920w" sizes="(max-width: 639px) 750px, (max-width: 1023px) 1360px, 1280px" alt="Logo fid.ai e anteprima della scheda Bozza AI da approvare" width="1920" height="1280" data-source="client" data-subject="fid.ai" loading="lazy" decoding="async"></figure>
           <h3>Dal 2025: fid.ai</h3>
           <p>Fondo fid.ai e la porto dall'idea al server: una segreteria AI su WhatsApp per professionisti che trascrive i vocali in Europa, prepara le bozze di risposta e fissa gli appuntamenti su Google Calendar.</p>
         </li>
@@ -227,155 +292,76 @@
   <section class="section" id="progetti" style="--hm: 2" aria-labelledby="progetti-h">
     <div class="wrap">
       <div class="section-head"><h2 id="progetti-h">Progetti che porto avanti</h2><p>Software, formazione e un'azienda giovane: li seguo dall'idea al server.</p></div>
-      <div class="grid grid--top fill" data-peek>
-        <ul class="rows span-6">
-          <li data-peek-to="fidai" tabindex="0"><span class="rows__name">fid.ai</span><p>La tua segreteria digitale e intelligente: gestisce per te le richieste di tutti i tuoi clienti. <a class="link" href="https://fidai.it">Apri fidai.it</a></p><span class="rows__value">Founder</span></li>
-          <li data-peek-to="aula" tabindex="0"><span class="rows__name">Facilitazione d'aula</span><p>Progetto e conduco i webinar di formazione manageriale di Towers Watson Italia e Challenge Network.</p><span class="rows__value">Webinar</span></li>
-          <li data-peek-to="scuola" tabindex="0"><span class="rows__name">Formazione IA a scuola</span><p>Docente formatore presso La Lucerna Educational a Cuneo: percorsi sull'IA per i docenti della scuola primaria e secondaria di primo grado.</p><span class="rows__value">30 ore</span></li>
-          <li data-peek-to="dotspace" tabindex="0"><span class="rows__name">DotSpace</span><p>L'azienda di cui sono socio con quattro sviluppatori: API e webapp su misura in TypeScript, React e PostgreSQL, nata da poco.</p><span class="rows__value">Socio</span></li>
-        </ul>
-        <div class="card m-nolift span-6 start-7" data-ui-still>
-          <div class="panel panel--inset">
-            <div class="stage stage--fade-b" data-peek-for="fidai">
-              <div class="at-rise fit" style="--fit-max: 440px; --ax: max(20px, 50% - 220px); --ay: 28px; --ay-sm: 16px;">
-                <div class="ui ui-panel ui-chat" data-ui="chat">
-                  <div class="ui-head">
-                    <span class="ui-agent" aria-hidden="true"></span>
-                    <div class="ui-title">Maria R.</div>
-                    <span class="ui-chat__online">WhatsApp</span>
-                    <span class="ui-spacer"></span>
-                    <span class="ui-chat__tool" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 16 16"><path d="M3 8h10M8 3v10" transform="rotate(45 8 8)"/></svg></span>
-                  </div>
-                  <div class="ui-chat__body">
-                    <div class="ui-chat__day">Oggi, 9:12</div>
-                    <div class="ui-msg ui-msg--me" data-chat-q>
-                      <span class="ui-msg__text">Buongiorno, avrei bisogno di un appuntamento in settimana.</span>
-                    </div>
-                    <div class="ui-msg ui-msg--bot" data-chat-a>
-                      <span class="ui-agent ui-msg__av" aria-hidden="true"></span>
-                      <span class="ui-msg__col">
-                        <span class="ui-chat__answer">Buongiorno Maria, ho posto giovedì alle 17:30 oppure venerdì alle 9:00: quale preferisce?</span>
-                        <span class="ui-chat__srcs">
-                          <span class="ui-chat__src"><svg class="ui-icon" viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM6.5 5.5v3l2.5 1.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>Bozza approvata</span>
-                        </span>
-                      </span>
-                    </div>
-                    <div class="ui-msg ui-msg--me">
-                      <span class="ui-msg__text">Giovedì, grazie.</span>
-                    </div>
-                    <div class="ui-msg ui-msg--bot">
-                      <span class="ui-agent ui-msg__av" aria-hidden="true"></span>
-                      <span class="ui-msg__col">
-                        <span class="ui-chat__answer">Perfetto, segnato per giovedì alle 17:30 con promemoria il giorno prima.</span>
-                        <span class="ui-chat__srcs">
-                          <span class="ui-chat__src"><svg class="ui-icon" viewBox="0 0 16 16"><rect x="2" y="3" width="12" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M2 7h12M5 1v3M11 1v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Google Calendar</span>
-                        </span>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="ui-chat__input">
-                    <span class="ui-chat__ph">Scrivi una risposta</span>
-                    <span class="ui-chat__send" aria-hidden="true"><svg viewBox="0 0 16 16" width="14" height="14"><path d="M8 13V3.5M3.8 7.5 8 3.3l4.2 4.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="stage stage--fade-b" data-peek-for="aula" hidden>
-              <div class="at-rise fit" style="--fit-max: 440px; --ax: max(20px, 50% - 220px); --ay: 28px; --ay-sm: 16px;">
-                <div class="ui ui-panel ui-calendar" data-ui="calendar" data-start="12" data-end="16" data-month="Ott">
-                  <div class="ui-cal__head">
-                    <div class="ui-cal__month">Ottobre <span>2026</span></div>
-                    <span class="ui-spacer"></span>
-                    <span class="ui-chip ui-chip--plain ui-chip--ink" data-cal-range>12 – 16 ott</span>
-                    <span class="ui-cal__nav" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 16 16"><path d="M10 4 6 8l4 4"/></svg></span>
-                    <span class="ui-cal__nav" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 16 16"><path d="m6 4 4 4-4 4"/></svg></span>
-                  </div>
-                  <div class="ui-cal__dow" aria-hidden="true"><span>Lu</span><span>Ma</span><span>Me</span><span>Gi</span><span>Ve</span><span>Sa</span><span>Do</span></div>
-                  <div class="ui-cal__days">
-                      <span class="ui-cal__d is-out"><b>28</b></span><span class="ui-cal__d is-out"><b>29</b></span><span class="ui-cal__d is-out"><b>30</b></span><span class="ui-cal__d" data-d="1"><b>1</b></span><span class="ui-cal__d" data-d="2"><b>2</b></span><span class="ui-cal__d" data-d="3"><b>3</b></span><span class="ui-cal__d" data-d="4"><b>4</b></span>
-                      <span class="ui-cal__d" data-d="5"><b>5</b></span><span class="ui-cal__d" data-d="6"><b>6</b></span><span class="ui-cal__d" data-d="7"><b>7</b></span><span class="ui-cal__d" data-d="8"><b>8</b></span><span class="ui-cal__d is-today" data-d="9"><b>9</b></span><span class="ui-cal__d" data-d="10"><b>10</b></span><span class="ui-cal__d" data-d="11"><b>11</b></span>
-                      <span class="ui-cal__d is-start" data-d="12"><b>12</b></span><span class="ui-cal__d is-in" data-d="13"><b>13</b></span><span class="ui-cal__d is-in" data-d="14"><b>14</b></span><span class="ui-cal__d is-in" data-d="15"><b>15</b></span><span class="ui-cal__d is-end" data-d="16"><b>16</b></span><span class="ui-cal__d" data-d="17"><b>17</b></span><span class="ui-cal__d" data-d="18"><b>18</b></span>
-                      <span class="ui-cal__d" data-d="19"><b>19</b></span><span class="ui-cal__d" data-d="20"><b>20</b></span><span class="ui-cal__d" data-d="21"><b>21</b></span><span class="ui-cal__d" data-d="22"><b>22</b></span><span class="ui-cal__d" data-d="23"><b>23</b></span><span class="ui-cal__d is-mark" data-d="24"><b>24</b></span><span class="ui-cal__d" data-d="25"><b>25</b></span>
-                      <span class="ui-cal__d" data-d="26"><b>26</b></span><span class="ui-cal__d" data-d="27"><b>27</b></span><span class="ui-cal__d" data-d="28"><b>28</b></span><span class="ui-cal__d" data-d="29"><b>29</b></span><span class="ui-cal__d" data-d="30"><b>30</b></span><span class="ui-cal__d" data-d="31"><b>31</b></span><span class="ui-cal__d is-out"><b>1</b></span>
-                  </div>
-                  <div class="ui-cal__events">
-                    <div class="ui-cal__ev" data-ev="12">
-                      <span class="ui-cal__date"><b>12</b><i>Ott</i></span>
-                      <span class="ui-cal__evtext"><span class="ui-cal__evtitle">Metodi agili e cloud</span><span class="ui-cal__evsub">Webinar manageriale · Towers Watson Italia</span></span>
-                    </div>
-                    <div class="ui-cal__ev" data-ev="16">
-                      <span class="ui-cal__date"><b>16</b><i>Ott</i></span>
-                      <span class="ui-cal__evtext"><span class="ui-cal__evtitle">Leadership e processi digitali</span><span class="ui-cal__evsub">Sessione interattiva · Challenge Network</span></span>
-                    </div>
-                    <div class="ui-cal__ev" data-ev="24">
-                      <span class="ui-cal__date"><b>24</b><i>Ott</i></span>
-                      <span class="ui-cal__evtext"><span class="ui-cal__evtitle">Laboratorio casi reali</span><span class="ui-cal__evsub">Follow-up operativo con i team</span></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="stage stage--fade-b" data-peek-for="scuola" hidden>
-              <div class="at-rise fit" style="--fit-max: 440px; --ax: max(20px, 50% - 220px); --ay: 28px; --ay-sm: 16px;">
-                <div class="ui ui-panel ui-checks" data-ui="checklist">
-                  <div class="ui-checks__head">
-                    <div class="ui-title">La Lucerna Educational · Cuneo</div>
-                    <span class="ui-spacer"></span>
-                    <div class="ui-meta" data-checks-count>5 moduli · 30 ore</div>
-                  </div>
-                  <div class="ui-checks__bar"><i data-checks-bar style="--k:1"></i></div>
-                  <ul class="ui-checks__list">
-                    <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Fondamenti IA e verifica delle fonti</span></li>
-                    <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Attività pratiche per la scuola primaria</span></li>
-                    <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Laboratori per la secondaria di primo grado</span></li>
-                    <li class="ui-check"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Tutela dati degli studenti in classe</span></li>
-                    <li class="ui-check"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Kit didattico pronto per i docenti</span></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="stage stage--fade-b" data-peek-for="dotspace" hidden>
-              <div class="at-rise fit" style="--fit-max: 440px; --ax: max(20px, 50% - 220px); --ay: 28px; --ay-sm: 16px;">
-                <div class="ui ui-panel ui-term" data-ui="terminal-run">
-                  <div class="ui-term__head">
-                    <span class="ui-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                    <span class="ui-term__title">dotspace/platform</span>
-                    <span class="ui-meta">pnpm</span>
-                    <span class="ui-spacer"></span>
-                    <span class="ui-chip ui-chip--plain ui-term__branch"><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="3.5" r="1.5"/><circle cx="5" cy="12.5" r="1.5"/><circle cx="11" cy="5.5" r="1.5"/><path d="M5 5v6M11 7c0 2.6-6 1.8-6 4"/></svg>main</span>
-                  </div>
-                  <div class="ui-term__screen" data-term-screen>
-                    <div class="ui-term__track" data-term-track>
-                      <div class="ui-term__ln ui-term__cmd"><span class="ui-term__cwd">~/<span class="ui-term__up">dotspace/</span>platform</span><span class="ui-term__sig">$</span><span class="ui-term__typed" data-term-cmd>pnpm verify --architettura</span></div>
-                      <div class="ui-term__ln ui-term__meter" data-term-out data-term-meter><span class="ui-term__bar" style="--p:1"><i></i></span><span class="ui-term__count" data-term-count>4 di 4 moduli</span></div>
-                      <div class="ui-term__ln ui-term__log" data-term-out data-term-step><svg class="ui-term__tick" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 8.4 2.8 2.8 6.2-6.4"/></svg><span class="ui-term__path">api/hono-routes.ts</span><span class="ui-term__n">Zod + DTO</span><span class="ui-term__t">310ms</span></div>
-                      <div class="ui-term__ln ui-term__log" data-term-out data-term-step><svg class="ui-term__tick" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 8.4 2.8 2.8 6.2-6.4"/></svg><span class="ui-term__path">db/drizzle-schema.ts</span><span class="ui-term__n">PostgreSQL</span><span class="ui-term__t">420ms</span></div>
-                      <div class="ui-term__ln ui-term__log" data-term-out data-term-step><svg class="ui-term__tick" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 8.4 2.8 2.8 6.2-6.4"/></svg><span class="ui-term__path">web/react19-ssr.tsx</span><span class="ui-term__n">Tailwind + Vite</span><span class="ui-term__t">680ms</span></div>
-                      <div class="ui-term__ln ui-term__log" data-term-out data-term-step><svg class="ui-term__tick" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 8.4 2.8 2.8 6.2-6.4"/></svg><span class="ui-term__path">deploy/docker-vps.yml</span><span class="ui-term__n">Node 22 multi-stage</span><span class="ui-term__t">290ms</span></div>
-                      <div class="ui-term__ln ui-term__gap" data-term-out aria-hidden="true"></div>
-                      <div class="ui-term__ln ui-term__sum" data-term-out><span class="ui-term__key">Moduli</span><span class="ui-term__val">4 verificati</span><span class="ui-term__dim">(4)</span></div>
-                      <div class="ui-term__ln ui-term__sum" data-term-out><span class="ui-term__key">Revisione</span><span class="ui-term__val">ARCHITECTURE.md</span><span class="ui-term__dim">(ok)</span></div>
-                      <div class="ui-term__ln ui-term__done" data-term-out data-term-done><span class="ui-term__ok"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4.5 8.3 2.4 2.4 4.6-5"/></svg></span><b>Pronto</b><span class="ui-term__dim">in 1.70s</span></div>
-                      <div class="ui-term__ln ui-term__cmd" data-term-next><span class="ui-term__cwd">~/<span class="ui-term__up">dotspace/</span>platform</span><span class="ui-term__sig">$</span><span class="ui-term__typed"></span><i class="ui-term__caret" aria-hidden="true"></i></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <div class="grid grid--top proj-grid">
+        <article class="card span-6 proj-card">
+          <div class="proj-card__body">
+            <p class="proj-card__role">Founder · Dal 2025</p>
+            <h3>fid.ai</h3>
+            <p>Segreteria AI su WhatsApp: trascrive i vocali in Europa, prepara le bozze e fissa gli appuntamenti.</p>
+            <div class="proj-card__link"><a class="link" href="https://fidai.it">Apri fidai.it</a></div>
           </div>
-        </div>
+          <div class="proj-card__band" role="img" aria-label="Tecnologie usate in fid.ai: WhatsApp, Google Calendar e OpenAI">
+            <div class="proj-card__icons">
+              <span class="proj-card__tile"><img data-icon="whatsapp" src="assets/icons/whatsapp.svg" width="26" height="26" loading="lazy" decoding="async" alt=""></span>
+              <span class="proj-card__tile"><img data-icon="google-calendar" src="assets/icons/google-calendar.svg" width="26" height="26" loading="lazy" decoding="async" alt=""></span>
+              <span class="proj-card__tile"><img data-icon="openai" src="assets/icons/openai.svg" width="26" height="26" loading="lazy" decoding="async" alt=""></span>
+            </div>
+            <div class="proj-card__tags"><span class="proj-card__tag">Vocali e bozze</span><span class="proj-card__tag">Server UE</span></div>
+          </div>
+        </article>
+        <article class="card span-6 proj-card">
+          <div class="proj-card__body">
+            <p class="proj-card__role">Socio · Dal 2026</p>
+            <h3>DotSpace</h3>
+            <p>Studio con quattro sviluppatori: progettiamo API e webapp su misura in TypeScript, React e PostgreSQL.</p>
+            <div class="proj-card__link"><a class="link" href="https://dotspace.it">Apri dotspace.it</a></div>
+          </div>
+          <div class="proj-card__band" role="img" aria-label="Stack tecnico DotSpace: TypeScript, React, PostgreSQL e Docker">
+            <div class="proj-card__icons">
+              <span class="proj-card__tile"><img data-icon="typescript" src="assets/icons/typescript.svg" width="26" height="26" loading="lazy" decoding="async" alt=""></span>
+              <span class="proj-card__tile"><img data-icon="react" src="assets/icons/react.svg" width="26" height="26" loading="lazy" decoding="async" alt=""></span>
+              <span class="proj-card__tile"><img data-icon="postgres" src="assets/icons/postgres.svg" width="26" height="26" loading="lazy" decoding="async" alt=""></span>
+              <span class="proj-card__tile"><img data-icon="docker" src="assets/icons/docker.svg" width="26" height="26" loading="lazy" decoding="async" alt=""></span>
+            </div>
+            <div class="proj-card__tags"><span class="proj-card__tag">API e Webapp</span><span class="proj-card__tag">Hono</span></div>
+          </div>
+        </article>
+        <article class="card m-nolift span-6 proj-card">
+          <div class="proj-card__body">
+            <p class="proj-card__role">Formazione aziendale · Webinar</p>
+            <h3>Facilitazione d'aula</h3>
+            <p>Progetto e conduco webinar manageriali per Towers Watson Italia e Challenge Network.</p>
+          </div>
+          <div class="proj-card__band" role="img" aria-label="Partner formazione aziendale: Towers Watson Italia e Challenge Network">
+            <span class="proj-card__glyph" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            <div class="proj-card__tags"><span class="proj-card__tag">Towers Watson Italia</span><span class="proj-card__tag">Challenge Network</span></div>
+          </div>
+        </article>
+        <article class="card m-nolift span-6 proj-card">
+          <div class="proj-card__body">
+            <p class="proj-card__role">Docente formatore · 30 ore</p>
+            <h3>Formazione IA a scuola</h3>
+            <p>Docente formatore a Cuneo per La Lucerna Educational: percorsi IA per primaria e secondaria.</p>
+          </div>
+          <div class="proj-card__band" role="img" aria-label="Percorso formativo presso La Lucerna Educational a Cuneo, 30 ore">
+            <span class="proj-card__glyph" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+            <div class="proj-card__tags"><span class="proj-card__tag">La Lucerna Educational</span><span class="proj-card__tag">Cuneo</span></div>
+          </div>
+        </article>
       </div>
+    </div>
+  </section>
 </main>
 
-<footer class="footer closing footer--dark ground-inverse g2m" id="contact" aria-labelledby="close-h">
+<footer class="footer closing footer--dark ground-inverse" id="contact" aria-labelledby="close-h">
   <div class="wrap">
     <div class="closing__cta close--type">
-      <div class="section-head">
-        <h2 id="close-h">Il modo più diretto per contattarmi è:</h2>
-      </div>
-      <div class="btn-row closing__btns">
-        <a class="btn btn--primary" href="https://www.linkedin.com/in/luca-bertaggia/">LinkedIn<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
-        <a class="btn btn--secondary" href="mailto:luca.bertaggia@dotspace.it">Posta</a>
+      <div class="closing__row">
+        <h2 id="close-h">Per restare in contatto:</h2>
+        <div class="btn-row closing__btns">
+          <a class="btn btn--primary" href="https://www.linkedin.com/in/luca-bertaggia/">LinkedIn<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+          <a class="btn btn--secondary" href="mailto:luca.bertaggia@dotspace.it">Posta</a>
+        </div>
       </div>
       <p class="closing__tagline">Software, IA e automazioni</p>
     </div>
