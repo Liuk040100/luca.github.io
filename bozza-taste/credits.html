@@ -74,6 +74,9 @@
   --u-soft: color-mix(in oklab, var(--u-ink) 72%, var(--u-bg));
 }
 #chi-sono .ui-pipe .ui-avatar { background: var(--u-fill-3); color: var(--u-ink); }
+#contact .closing__cta { display: flex; flex-direction: column; align-items: flex-start; }
+#contact .closing__cta .closing__btns { display: flex; flex-direction: row; flex-wrap: nowrap; gap: var(--s-4); align-items: center; }
+#contact .closing__cta .closing__tagline { margin-top: auto; padding-top: var(--s-7); color: var(--muted); font-size: 1rem; }
 @media (max-width: 1023px) {
   #chi-sono .grid { row-gap: var(--s-7); }
   #chi-sono .card > .panel--inset:first-child { --p-h: 344px; }
@@ -122,9 +125,8 @@
   <section class="credits-list" id="credits" aria-labelledby="credits-h">
     <h1 id="credits-h">Photograph credits</h1>
     <ul>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Campus_Luigi_Einaudi_@_Universit%C3%A0_degli_Studi_di_Torino_@_Turin_(49195208386).jpg">Guilhem Vellut from Annecy, France</a>, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a></li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:139_Server_Room_01.jpg">Indrajit Das</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a></li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Stadionebiolo.JPG">The Casalegno / Gazzetta del Nebiolo;</a>, <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a></li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Torino_-_Comune_di_Torino_-_2024-09-15_18-19-38_001.jpg">Bocassina</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a></li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Porticos_in_the_courtyard,_Palazzo_dell%27Universit%C3%A0,_Turin,_Italy.jpg">Pmk58</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a></li>
     </ul>
   </section>
 </main>
@@ -133,19 +135,18 @@
   <div class="wrap">
     <div class="closing__cta close--type">
       <div class="section-head">
-        <h2 id="close-h">Il modo più diretto è LinkedIn</h2>
-        <p>Scrivimi su <a class="link" href="https://www.linkedin.com/in/luca-bertaggia/">LinkedIn</a> oppure <a class="link" href="mailto:luca.bertaggia@dotspace.it">scrivimi per posta</a>: rispondo a tutto quello che non è una proposta di link building.</p>
+        <h2 id="close-h">Il modo più diretto per contattarmi è:</h2>
       </div>
-      <div class="btn-row">
-        <a class="btn btn--primary btn--xl" href="https://www.linkedin.com/in/luca-bertaggia/">Scrivimi su LinkedIn<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
-        <a class="btn btn--secondary btn--xl" href="mailto:luca.bertaggia@dotspace.it">Scrivi per posta</a>
+      <div class="btn-row closing__btns">
+        <a class="btn btn--primary" href="https://www.linkedin.com/in/luca-bertaggia/">LinkedIn<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+        <a class="btn btn--secondary" href="mailto:luca.bertaggia@dotspace.it">Posta</a>
       </div>
+      <p class="closing__tagline">Software, IA e automazioni</p>
     </div>
     <div class="closing__links">
       <div class="grid">
         <div class="span-4 stack-4">
           <a class="nav__logo" href="#top"><span class="mark" data-mark="ring" aria-hidden="true"></span>Luca Bertaggia</a>
-          <p class="footer__lede">Software, IA e automazioni</p>
         </div>
         <div class="span-2 start-7 footer__col"><h3>Pagina</h3><ul><li><a href="#chi-sono">Chi sono</a></li><li><a href="#percorso">Percorso</a></li><li><a href="#progetti">Progetti</a></li></ul></div>
         <div class="span-2 footer__col"><h3>Contatti</h3><ul><li><a href="mailto:luca.bertaggia@dotspace.it">Email</a></li><li><a href="https://github.com/Liuk040100">GitHub</a></li><li><a href="https://www.linkedin.com/in/luca-bertaggia/">LinkedIn</a></li></ul></div>

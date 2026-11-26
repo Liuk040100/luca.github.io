@@ -86,6 +86,35 @@
    "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Stadionebiolo.JPG",
    "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f152671732-960.webp",
+   "files": [
+    "photo-f152671732-500.webp",
+    "photo-f152671732-960.webp"
+   ],
+   "id": "f152671732",
+   "alt": "Torino - Comune di Torino - 2024-09-15 18-19-38 001",
+   "by": "Bocassina",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Torino_-_Comune_di_Torino_-_2024-09-15_18-19-38_001.jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f129314742.webp",
+   "files": [
+    "photo-f129314742-500.webp",
+    "photo-f129314742-960.webp",
+    "photo-f129314742.webp"
+   ],
+   "id": "f129314742",
+   "alt": "Porticos in the courtyard, Palazzo dell'Università, Turin, Italy",
+   "by": "Pmk58",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Porticos_in_the_courtyard,_Palazzo_dell%27Universit%C3%A0,_Turin,_Italy.jpg",
+   "source": "Wikimedia Commons"
   }
  ]
 }
