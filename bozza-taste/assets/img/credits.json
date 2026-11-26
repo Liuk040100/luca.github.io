@@ -1,0 +1,91 @@
+{
+ "note": "Credits for the photographs in this folder: photos.mjs credits prints the footer block for the ones the pages use.",
+ "photos": [
+  {
+   "file": "photo-f106434183-500.jpg",
+   "files": [
+    "photo-f106434183-500.jpg"
+   ],
+   "id": "f106434183",
+   "alt": "Campus Luigi Einaudi @ Università degli Studi di Torino @ Turin (49195208386)",
+   "by": "Guilhem Vellut from Annecy, France",
+   "licence": "CC BY 2.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Campus_Luigi_Einaudi_@_Universit%C3%A0_degli_Studi_di_Torino_@_Turin_(49195208386).jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f65122033-960.jpg",
+   "files": [
+    "photo-f65122033-500.jpg",
+    "photo-f65122033-960.jpg"
+   ],
+   "id": "f65122033",
+   "alt": "139 Server Room 01",
+   "by": "Indrajit Das",
+   "licence": "CC BY-SA 3.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:139_Server_Room_01.jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f62268008.jpg",
+   "files": [
+    "photo-f62268008-500.jpg",
+    "photo-f62268008-960.jpg",
+    "photo-f62268008.jpg"
+   ],
+   "id": "f62268008",
+   "alt": "Video conference room (3570807285)",
+   "by": "Mike Beltzner",
+   "licence": "CC BY-SA 2.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Video_conference_room_(3570807285).jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f159668739.jpg",
+   "files": [
+    "photo-f159668739-500.jpg",
+    "photo-f159668739-960.jpg",
+    "photo-f159668739.jpg"
+   ],
+   "id": "f159668739",
+   "alt": "Empty class room",
+   "by": "Saral Shots",
+   "licence": "CC0",
+   "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "page": "https://commons.wikimedia.org/wiki/File:Empty_class_room.jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f62049414-960.jpg",
+   "files": [
+    "photo-f62049414-500.jpg",
+    "photo-f62049414-960.jpg"
+   ],
+   "id": "f62049414",
+   "alt": "Code on computer monitor (Unsplash)",
+   "by": "Markus Spiske markusspiske",
+   "licence": "CC0",
+   "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "page": "https://commons.wikimedia.org/wiki/File:Code_on_computer_monitor_(Unsplash).jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f181245784.webp",
+   "files": [
+    "photo-f181245784-500.webp",
+    "photo-f181245784-960.webp",
+    "photo-f181245784.webp"
+   ],
+   "id": "f181245784",
+   "alt": "Stadionebiolo",
+   "by": "The Casalegno / Gazzetta del Nebiolo;",
+   "licence": "CC BY 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Stadionebiolo.JPG",
+   "source": "Wikimedia Commons"
+  }
+ ]
+}

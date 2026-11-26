@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="it" data-type="service" data-radius="soft" data-buttons="arrow" data-motion>
+<html lang="it" data-type="service" data-radius="soft" data-buttons="arrow" data-ground="sky" data-motion>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Luca Bertaggia: crediti delle fotografie</title>
+<title>Luca Bertaggia: photograph credits</title>
 <meta name="description" content="The photographers, licences and source pages of the photographs on the Luca Bertaggia website.">
 <meta name="robots" content="noindex">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Luca Bertaggia: software con l'IA da Torino">
+<meta property="og:title" content="Luca Bertaggia: software personalizzati e automazioni">
 <meta property="og:description" content="Progetto software con l'IA e rendo automatici i processi ripetitivi.">
 <meta property="og:image" content="share.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -19,6 +19,12 @@
 <link rel="preload" href="fonts/red-hat-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/red-hat-text-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/system.css">
+<link rel="stylesheet" href="assets/ui/base.css">
+<link rel="stylesheet" href="assets/ui/pipeline-board/fragment.css">
+<link rel="stylesheet" href="assets/ui/chat/fragment.css">
+<link rel="stylesheet" href="assets/ui/calendar/fragment.css">
+<link rel="stylesheet" href="assets/ui/checklist/fragment.css">
+<link rel="stylesheet" href="assets/ui/terminal-run/fragment.css">
 <link rel="stylesheet" href="assets/ui/cards.css">
 <link rel="stylesheet" href="assets/motion/motion.css">
 <link rel="stylesheet" href="assets/layout/layout.css">
@@ -35,6 +41,49 @@
   --display-weight: 400;
   --display-tracking: -0.025em;
   --display-tracking-xl: -0.035em;
+}
+.hero__lead a { font-weight: 500; text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 4px; transition: text-decoration-color var(--dur) var(--ease); }
+.hero__lead a:hover { text-decoration-color: currentColor; }
+@media (max-width: 639px) {
+  #top .hero--photo { --photo: 33svh; }
+  #top .hero--photo .hero__text > * + * { margin-top: var(--s-4); }
+  #top .hero--photo .hero__text > .btn-row { margin-top: var(--s-5); }
+}
+@media (min-width: 640px) and (max-width: 1023px) and (orientation: portrait) {
+  #top .hero--photo { --photo: min(52svh, 72vw); }
+}
+@media (min-width: 1024px) and (max-height: 820px) {
+  #top .hero--photo:not([data-box="none"]) .hero__text { padding: var(--s-6); }
+  #top .hero--photo .hero__text > * + * { margin-top: var(--s-4); }
+  #top .hero--photo .hero__text > .btn-row { margin-top: var(--s-5); }
+  #progetti .section-head { margin-bottom: var(--s-4); }
+  #progetti .rows > li { padding-block: 10px; }
+}
+@media (min-width: 640px) and (max-width: 810px) {
+  footer#contact .closing__cta > .btn--xl { width: 100%; max-width: none; }
+}
+#chi-sono .card > .panel--inset:first-child {
+  margin-top: calc(var(--c-gap) - var(--c-pad)); --p-h: 484px; --calm: #e8eef4; --calm-k: 45%;
+  background-color: var(--ground-bg, #c6d3df);
+  background-image:
+    radial-gradient(70% 90% at 12% 0%, color-mix(in oklab, var(--ground-surface, #d6e0e9) 92%, white), transparent 70%),
+    radial-gradient(60% 80% at 100% 100%, color-mix(in oklab, var(--ground-accent, #3f6a92) 26%, var(--ground-bg, #c6d3df)), transparent 72%);
+}
+#chi-sono .ui-pipe {
+  --u-muted: color-mix(in oklab, var(--u-ink) 76%, var(--u-bg));
+  --u-soft: color-mix(in oklab, var(--u-ink) 72%, var(--u-bg));
+}
+#chi-sono .ui-pipe .ui-avatar { background: var(--u-fill-3); color: var(--u-ink); }
+@media (max-width: 1023px) {
+  #chi-sono .grid { row-gap: var(--s-7); }
+  #chi-sono .card > .panel--inset:first-child { --p-h: 344px; }
+}
+@media (max-width: 639px) {
+  #chi-sono .card > .panel--inset:first-child { --p-h: 510px; }
+}
+@container ui-pipe (max-width: 460px) {
+  .ui-pipe .ui-pipe__step { grid-template-columns: 18px minmax(0, 1fr) auto; }
+  .ui-pipe .ui-pipe__cmd { display: none; }
 }
 </style>
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
@@ -54,9 +103,9 @@
     <a class="skip-link" href="#top">Vai al contenuto</a>
     <a class="nav__logo" href="#top"><span class="mark" data-mark="ring" aria-hidden="true"></span>Luca Bertaggia</a>
     <nav class="nav__links" aria-label="Principale">
-      <div class="nav__item"><a class="nav__link" href="index.html#chi-sono">Chi sono</a></div>
-      <div class="nav__item"><a class="nav__link" href="index.html#percorso">Percorso</a></div>
-      <div class="nav__item"><a class="nav__link" href="index.html#progetti">Progetti</a></div>
+      <div class="nav__item"><a class="nav__link" href="#chi-sono">Chi sono</a></div>
+      <div class="nav__item"><a class="nav__link" href="#percorso">Percorso</a></div>
+      <div class="nav__item"><a class="nav__link" href="#progetti">Progetti</a></div>
     </nav>
     <div class="nav__actions">
       <a class="nav__link" href="../Luca-Bertaggia-IT-Italiano.pdf">Presentazione</a>
@@ -71,36 +120,35 @@
 <main id="top">
   <p><a class="link" href="index.html">Luca Bertaggia</a></p>
   <section class="credits-list" id="credits" aria-labelledby="credits-h">
-    <h1 id="credits-h">Crediti delle fotografie</h1>
+    <h1 id="credits-h">Photograph credits</h1>
     <ul>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Stadionebiolo.JPG">The Casalegno / Gazzetta del Nebiolo</a>, <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a>, ritagliata</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Campus_Luigi_Einaudi_@_Universit%C3%A0_degli_Studi_di_Torino_@_Turin_(49195208386).jpg">Guilhem Vellut from Annecy, France</a>, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a>, ritagliata</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:139_Server_Room_01.jpg">Indrajit Das</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>, ritagliata</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Video_conference_room_(3570807285).jpg">Mike Beltzner</a>, <a href="https://creativecommons.org/licenses/by-sa/2.0">CC BY-SA 2.0</a>, ritagliata</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Empty_class_room.jpg">Saral Shots</a>, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en">CC0</a>, ritagliata</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Code_on_computer_monitor_(Unsplash).jpg">Markus Spiske markusspiske</a>, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en">CC0</a>, ritagliata</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Campus_Luigi_Einaudi_@_Universit%C3%A0_degli_Studi_di_Torino_@_Turin_(49195208386).jpg">Guilhem Vellut from Annecy, France</a>, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a></li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:139_Server_Room_01.jpg">Indrajit Das</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a></li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Stadionebiolo.JPG">The Casalegno / Gazzetta del Nebiolo;</a>, <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a></li>
     </ul>
   </section>
 </main>
 
-<footer class="footer closing footer--dark ground-inverse" id="contact" aria-labelledby="close-h">
+<footer class="footer closing footer--dark ground-inverse g2m" id="contact" aria-labelledby="close-h">
   <div class="wrap">
     <div class="closing__cta close--type">
       <div class="section-head">
-        <h2 id="close-h">Il modo più diretto è la posta</h2>
-        <p>Rispondo a tutto quello che non è una proposta di link building.</p>
+        <h2 id="close-h">Il modo più diretto è LinkedIn</h2>
+        <p>Scrivimi su <a class="link" href="https://www.linkedin.com/in/luca-bertaggia/">LinkedIn</a> oppure <a class="link" href="mailto:luca.bertaggia@dotspace.it">scrivimi per posta</a>: rispondo a tutto quello che non è una proposta di link building.</p>
       </div>
-      <a class="btn btn--primary btn--xl btn--wide" href="mailto:luca.bertaggia@dotspace.it">Scrivimi<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--xl" href="https://www.linkedin.com/in/luca-bertaggia/">Scrivimi su LinkedIn<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+        <a class="btn btn--secondary btn--xl" href="mailto:luca.bertaggia@dotspace.it">Scrivi per posta</a>
+      </div>
     </div>
     <div class="closing__links">
       <div class="grid">
         <div class="span-4 stack-4">
           <a class="nav__logo" href="#top"><span class="mark" data-mark="ring" aria-hidden="true"></span>Luca Bertaggia</a>
-          <p class="footer__lede">Software con l'IA che rende automatici i processi ripetitivi.</p>
+          <p class="footer__lede">Software, IA e automazioni</p>
         </div>
-        <div class="span-2 footer__col"><h3>Pagina</h3><ul><li><a href="index.html#chi-sono">Chi sono</a></li><li><a href="index.html#percorso">Percorso</a></li><li><a href="index.html#progetti">Progetti</a></li></ul></div>
-        <div class="span-2 footer__col"><h3>Contatti</h3><ul><li><a href="mailto:luca.bertaggia@dotspace.it">luca.bertaggia@dotspace.it</a></li></ul></div>
-        <div class="span-2 footer__col"><h3>Profili</h3><ul><li><a href="https://github.com/Liuk040100">GitHub</a></li><li><a href="https://www.linkedin.com/in/luca-bertaggia/">LinkedIn</a></li></ul></div>
+        <div class="span-2 start-7 footer__col"><h3>Pagina</h3><ul><li><a href="#chi-sono">Chi sono</a></li><li><a href="#percorso">Percorso</a></li><li><a href="#progetti">Progetti</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Contatti</h3><ul><li><a href="mailto:luca.bertaggia@dotspace.it">Email</a></li><li><a href="https://github.com/Liuk040100">GitHub</a></li><li><a href="https://www.linkedin.com/in/luca-bertaggia/">LinkedIn</a></li></ul></div>
         <div class="span-2 footer__col"><h3>Documenti</h3><ul><li><a href="../Luca-Bertaggia-IT-Italiano.pdf">Presentazione in PDF</a></li></ul></div>
       </div>
       <div class="footer__legal">

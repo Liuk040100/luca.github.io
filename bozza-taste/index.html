@@ -21,6 +21,10 @@
 <link rel="stylesheet" href="assets/system.css">
 <link rel="stylesheet" href="assets/ui/base.css">
 <link rel="stylesheet" href="assets/ui/pipeline-board/fragment.css">
+<link rel="stylesheet" href="assets/ui/chat/fragment.css">
+<link rel="stylesheet" href="assets/ui/calendar/fragment.css">
+<link rel="stylesheet" href="assets/ui/checklist/fragment.css">
+<link rel="stylesheet" href="assets/ui/terminal-run/fragment.css">
 <link rel="stylesheet" href="assets/ui/cards.css">
 <link rel="stylesheet" href="assets/motion/motion.css">
 <link rel="stylesheet" href="assets/layout/layout.css">
@@ -211,7 +215,7 @@
         <li class="mo-ph__ch">
           <figure class="mo-ph__pic"><img src="img/photo-f65122033-1920.webp" srcset="img/photo-f65122033-720p.webp 720w, img/photo-f65122033-960.webp 960w, img/photo-f65122033-1920.webp 1920w" sizes="(max-width: 639px) 720px, (max-width: 1023px) 1360px, 1280px" alt="Armadi di server aperti in una sala tecnica" width="1920" height="1280" data-source="stand-in" data-subject="server" loading="lazy" decoding="async"></figure>
           <h3>2026: DotSpace</h3>
-          <p>Divento socio di DotSpace insieme a quattro sviluppatori: una squadra di cinque persone che progetta software su misura, integrazioni IA e automazioni per snellire il lavoro di aziende e professionisti.</p>
+          <p>Divento socio di DotSpace insieme a quattro sviluppatori: progettiamo API e webapp su misura in TypeScript, Hono, React e PostgreSQL, dal design in Figma alla revisione del codice fino al deploy Docker.</p>
         </li>
       </ol>
     </div>
@@ -223,39 +227,163 @@
       <div class="grid grid--top fill" data-peek>
         <ul class="rows span-6">
           <li data-peek-to="fidai" tabindex="0"><span class="rows__name">fid.ai</span><p>La tua segreteria digitale e intelligente: gestisce per te le richieste di tutti i tuoi clienti. <a class="link" href="https://fidai.it">Apri fidai.it</a></p><span class="rows__value">Founder</span></li>
-          <li data-peek-to="aula" tabindex="0"><span class="rows__name">Facilitazione d'aula</span><p>Progetto e conduco i webinar di formazione manageriale di Towers Watson Italia e Challenge Network: due ore, duecento persone collegate.</p><span class="rows__value">Webinar</span></li>
-          <li data-peek-to="scuola" tabindex="0"><span class="rows__name">Formazione IA a scuola</span><p>Trenta ore per i docenti dell'IC Inzago: quindici incontri e un kit di attività pronte da usare in classe.</p><span class="rows__value">30 ore</span></li>
-          <li data-peek-to="dotspace" tabindex="0"><span class="rows__name">Dotspace</span><p>L'azienda di cui sono socio con tre sviluppatori: software su misura per aziende e professionisti, nata da poco.</p><span class="rows__value">Socio</span></li>
+          <li data-peek-to="aula" tabindex="0"><span class="rows__name">Facilitazione d'aula</span><p>Progetto e conduco i webinar di formazione manageriale di Towers Watson Italia e Challenge Network.</p><span class="rows__value">Webinar</span></li>
+          <li data-peek-to="scuola" tabindex="0"><span class="rows__name">Formazione IA a scuola</span><p>Docente formatore presso La Lucerna Educational a Cuneo: percorsi sull'IA per i docenti della scuola primaria e secondaria di primo grado.</p><span class="rows__value">30 ore</span></li>
+          <li data-peek-to="dotspace" tabindex="0"><span class="rows__name">DotSpace</span><p>L'azienda di cui sono socio con quattro sviluppatori: API e webapp su misura in TypeScript, React e PostgreSQL, nata da poco.</p><span class="rows__value">Socio</span></li>
         </ul>
-        <div class="frame frame--photo frame--fill span-6 start-7">
-          <img class="frame__img" data-peek-for="fidai" src="img/fidai-assistente-1120.webp" srcset="img/fidai-assistente-450.webp 450w, img/fidai-assistente-1120.webp 1120w" sizes="(max-width: 639px) 342px, 628px" width="1120" height="1000" loading="lazy" decoding="async" alt="L'assistente di fid.ai che elenca i clienti da richiamare" style="object-position: 0% 50%" data-source="client" data-subject="fid.ai">
-          <img class="frame__img" data-peek-for="aula" src="img/photo-f62268008-1280.webp" srcset="img/photo-f62268008-640.webp 640w, img/photo-f62268008-1280.webp 1280w" sizes="(max-width: 639px) 342px, 628px" width="1280" height="960" alt="Una sala per videoconferenze con schermo e telecamera" hidden data-source="stand-in" data-subject="webinar" loading="lazy" decoding="async">
-          <img class="frame__img" data-peek-for="scuola" src="img/photo-f159668739-1280.webp" srcset="img/photo-f159668739-640.webp 640w, img/photo-f159668739-1280.webp 1280w" sizes="(max-width: 639px) 342px, 628px" width="1280" height="960" alt="Un'aula scolastica con i banchi in file" hidden data-source="stand-in" data-subject="aula" loading="lazy" decoding="async">
-          <img class="frame__img" data-peek-for="dotspace" src="img/photo-f62049414-1280.webp" srcset="img/photo-f62049414-640.webp 640w, img/photo-f62049414-1280.webp 1280w" sizes="(max-width: 639px) 342px, 628px" width="1280" height="960" alt="Codice sorgente colorato su un monitor" hidden data-source="stand-in" data-subject="codice" loading="lazy" decoding="async">
+        <div class="card m-nolift span-6 start-7" data-ui-still>
+          <div class="panel panel--inset">
+            <div class="stage stage--fade-b" data-peek-for="fidai">
+              <div class="at-rise fit" style="--fit-max: 440px; --ax: max(20px, 50% - 220px); --ay: 28px; --ay-sm: 16px;">
+                <div class="ui ui-panel ui-chat" data-ui="chat">
+                  <div class="ui-head">
+                    <span class="ui-agent" aria-hidden="true"></span>
+                    <div class="ui-title">Maria R.</div>
+                    <span class="ui-chat__online">WhatsApp</span>
+                    <span class="ui-spacer"></span>
+                    <span class="ui-chat__tool" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 16 16"><path d="M3 8h10M8 3v10" transform="rotate(45 8 8)"/></svg></span>
+                  </div>
+                  <div class="ui-chat__body">
+                    <div class="ui-chat__day">Oggi, 9:12</div>
+                    <div class="ui-msg ui-msg--me" data-chat-q>
+                      <span class="ui-msg__text">Buongiorno, avrei bisogno di un appuntamento in settimana.</span>
+                    </div>
+                    <div class="ui-msg ui-msg--bot" data-chat-a>
+                      <span class="ui-agent ui-msg__av" aria-hidden="true"></span>
+                      <span class="ui-msg__col">
+                        <span class="ui-chat__answer">Buongiorno Maria, ho posto giovedì alle 17:30 oppure venerdì alle 9:00: quale preferisce?</span>
+                        <span class="ui-chat__srcs">
+                          <span class="ui-chat__src"><svg class="ui-icon" viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM6.5 5.5v3l2.5 1.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>Bozza approvata</span>
+                        </span>
+                      </span>
+                    </div>
+                    <div class="ui-msg ui-msg--me">
+                      <span class="ui-msg__text">Giovedì, grazie.</span>
+                    </div>
+                    <div class="ui-msg ui-msg--bot">
+                      <span class="ui-agent ui-msg__av" aria-hidden="true"></span>
+                      <span class="ui-msg__col">
+                        <span class="ui-chat__answer">Perfetto, segnato per giovedì alle 17:30 con promemoria il giorno prima.</span>
+                        <span class="ui-chat__srcs">
+                          <span class="ui-chat__src"><svg class="ui-icon" viewBox="0 0 16 16"><rect x="2" y="3" width="12" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M2 7h12M5 1v3M11 1v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Google Calendar</span>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="ui-chat__input">
+                    <span class="ui-chat__ph">Scrivi una risposta</span>
+                    <span class="ui-chat__send" aria-hidden="true"><svg viewBox="0 0 16 16" width="14" height="14"><path d="M8 13V3.5M3.8 7.5 8 3.3l4.2 4.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="stage stage--fade-b" data-peek-for="aula" hidden>
+              <div class="at-rise fit" style="--fit-max: 440px; --ax: max(20px, 50% - 220px); --ay: 28px; --ay-sm: 16px;">
+                <div class="ui ui-panel ui-calendar" data-ui="calendar" data-start="12" data-end="16" data-month="Ott">
+                  <div class="ui-cal__head">
+                    <div class="ui-cal__month">Ottobre <span>2026</span></div>
+                    <span class="ui-spacer"></span>
+                    <span class="ui-chip ui-chip--plain ui-chip--ink" data-cal-range>12 – 16 ott</span>
+                    <span class="ui-cal__nav" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 16 16"><path d="M10 4 6 8l4 4"/></svg></span>
+                    <span class="ui-cal__nav" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 16 16"><path d="m6 4 4 4-4 4"/></svg></span>
+                  </div>
+                  <div class="ui-cal__dow" aria-hidden="true"><span>Lu</span><span>Ma</span><span>Me</span><span>Gi</span><span>Ve</span><span>Sa</span><span>Do</span></div>
+                  <div class="ui-cal__days">
+                      <span class="ui-cal__d is-out"><b>28</b></span><span class="ui-cal__d is-out"><b>29</b></span><span class="ui-cal__d is-out"><b>30</b></span><span class="ui-cal__d" data-d="1"><b>1</b></span><span class="ui-cal__d" data-d="2"><b>2</b></span><span class="ui-cal__d" data-d="3"><b>3</b></span><span class="ui-cal__d" data-d="4"><b>4</b></span>
+                      <span class="ui-cal__d" data-d="5"><b>5</b></span><span class="ui-cal__d" data-d="6"><b>6</b></span><span class="ui-cal__d" data-d="7"><b>7</b></span><span class="ui-cal__d" data-d="8"><b>8</b></span><span class="ui-cal__d is-today" data-d="9"><b>9</b></span><span class="ui-cal__d" data-d="10"><b>10</b></span><span class="ui-cal__d" data-d="11"><b>11</b></span>
+                      <span class="ui-cal__d is-start" data-d="12"><b>12</b></span><span class="ui-cal__d is-in" data-d="13"><b>13</b></span><span class="ui-cal__d is-in" data-d="14"><b>14</b></span><span class="ui-cal__d is-in" data-d="15"><b>15</b></span><span class="ui-cal__d is-end" data-d="16"><b>16</b></span><span class="ui-cal__d" data-d="17"><b>17</b></span><span class="ui-cal__d" data-d="18"><b>18</b></span>
+                      <span class="ui-cal__d" data-d="19"><b>19</b></span><span class="ui-cal__d" data-d="20"><b>20</b></span><span class="ui-cal__d" data-d="21"><b>21</b></span><span class="ui-cal__d" data-d="22"><b>22</b></span><span class="ui-cal__d" data-d="23"><b>23</b></span><span class="ui-cal__d is-mark" data-d="24"><b>24</b></span><span class="ui-cal__d" data-d="25"><b>25</b></span>
+                      <span class="ui-cal__d" data-d="26"><b>26</b></span><span class="ui-cal__d" data-d="27"><b>27</b></span><span class="ui-cal__d" data-d="28"><b>28</b></span><span class="ui-cal__d" data-d="29"><b>29</b></span><span class="ui-cal__d" data-d="30"><b>30</b></span><span class="ui-cal__d" data-d="31"><b>31</b></span><span class="ui-cal__d is-out"><b>1</b></span>
+                  </div>
+                  <div class="ui-cal__events">
+                    <div class="ui-cal__ev" data-ev="12">
+                      <span class="ui-cal__date"><b>12</b><i>Ott</i></span>
+                      <span class="ui-cal__evtext"><span class="ui-cal__evtitle">Metodi agili e cloud</span><span class="ui-cal__evsub">Webinar manageriale · Towers Watson Italia</span></span>
+                    </div>
+                    <div class="ui-cal__ev" data-ev="16">
+                      <span class="ui-cal__date"><b>16</b><i>Ott</i></span>
+                      <span class="ui-cal__evtext"><span class="ui-cal__evtitle">Leadership e processi digitali</span><span class="ui-cal__evsub">Sessione interattiva · Challenge Network</span></span>
+                    </div>
+                    <div class="ui-cal__ev" data-ev="24">
+                      <span class="ui-cal__date"><b>24</b><i>Ott</i></span>
+                      <span class="ui-cal__evtext"><span class="ui-cal__evtitle">Laboratorio casi reali</span><span class="ui-cal__evsub">Follow-up operativo con i team</span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="stage stage--fade-b" data-peek-for="scuola" hidden>
+              <div class="at-rise fit" style="--fit-max: 440px; --ax: max(20px, 50% - 220px); --ay: 28px; --ay-sm: 16px;">
+                <div class="ui ui-panel ui-checks" data-ui="checklist">
+                  <div class="ui-checks__head">
+                    <div class="ui-title">La Lucerna Educational · Cuneo</div>
+                    <span class="ui-spacer"></span>
+                    <div class="ui-meta" data-checks-count>5 moduli · 30 ore</div>
+                  </div>
+                  <div class="ui-checks__bar"><i data-checks-bar style="--k:1"></i></div>
+                  <ul class="ui-checks__list">
+                    <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Fondamenti IA e verifica delle fonti</span></li>
+                    <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Attività pratiche per la scuola primaria</span></li>
+                    <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Laboratori per la secondaria di primo grado</span></li>
+                    <li class="ui-check"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Tutela dati degli studenti in classe</span></li>
+                    <li class="ui-check"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Kit didattico pronto per i docenti</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="stage stage--fade-b" data-peek-for="dotspace" hidden>
+              <div class="at-rise fit" style="--fit-max: 440px; --ax: max(20px, 50% - 220px); --ay: 28px; --ay-sm: 16px;">
+                <div class="ui ui-panel ui-term" data-ui="terminal-run">
+                  <div class="ui-term__head">
+                    <span class="ui-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                    <span class="ui-term__title">dotspace/platform</span>
+                    <span class="ui-meta">pnpm</span>
+                    <span class="ui-spacer"></span>
+                    <span class="ui-chip ui-chip--plain ui-term__branch"><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="3.5" r="1.5"/><circle cx="5" cy="12.5" r="1.5"/><circle cx="11" cy="5.5" r="1.5"/><path d="M5 5v6M11 7c0 2.6-6 1.8-6 4"/></svg>main</span>
+                  </div>
+                  <div class="ui-term__screen" data-term-screen>
+                    <div class="ui-term__track" data-term-track>
+                      <div class="ui-term__ln ui-term__cmd"><span class="ui-term__cwd">~/<span class="ui-term__up">dotspace/</span>platform</span><span class="ui-term__sig">$</span><span class="ui-term__typed" data-term-cmd>pnpm verify --architettura</span></div>
+                      <div class="ui-term__ln ui-term__meter" data-term-out data-term-meter><span class="ui-term__bar" style="--p:1"><i></i></span><span class="ui-term__count" data-term-count>4 di 4 moduli</span></div>
+                      <div class="ui-term__ln ui-term__log" data-term-out data-term-step><svg class="ui-term__tick" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 8.4 2.8 2.8 6.2-6.4"/></svg><span class="ui-term__path">api/hono-routes.ts</span><span class="ui-term__n">Zod + DTO</span><span class="ui-term__t">310ms</span></div>
+                      <div class="ui-term__ln ui-term__log" data-term-out data-term-step><svg class="ui-term__tick" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 8.4 2.8 2.8 6.2-6.4"/></svg><span class="ui-term__path">db/drizzle-schema.ts</span><span class="ui-term__n">PostgreSQL</span><span class="ui-term__t">420ms</span></div>
+                      <div class="ui-term__ln ui-term__log" data-term-out data-term-step><svg class="ui-term__tick" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 8.4 2.8 2.8 6.2-6.4"/></svg><span class="ui-term__path">web/react19-ssr.tsx</span><span class="ui-term__n">Tailwind + Vite</span><span class="ui-term__t">680ms</span></div>
+                      <div class="ui-term__ln ui-term__log" data-term-out data-term-step><svg class="ui-term__tick" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 8.4 2.8 2.8 6.2-6.4"/></svg><span class="ui-term__path">deploy/docker-vps.yml</span><span class="ui-term__n">Node 22 multi-stage</span><span class="ui-term__t">290ms</span></div>
+                      <div class="ui-term__ln ui-term__gap" data-term-out aria-hidden="true"></div>
+                      <div class="ui-term__ln ui-term__sum" data-term-out><span class="ui-term__key">Moduli</span><span class="ui-term__val">4 verificati</span><span class="ui-term__dim">(4)</span></div>
+                      <div class="ui-term__ln ui-term__sum" data-term-out><span class="ui-term__key">Revisione</span><span class="ui-term__val">ARCHITECTURE.md</span><span class="ui-term__dim">(ok)</span></div>
+                      <div class="ui-term__ln ui-term__done" data-term-out data-term-done><span class="ui-term__ok"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4.5 8.3 2.4 2.4 4.6-5"/></svg></span><b>Pronto</b><span class="ui-term__dim">in 1.70s</span></div>
+                      <div class="ui-term__ln ui-term__cmd" data-term-next><span class="ui-term__cwd">~/<span class="ui-term__up">dotspace/</span>platform</span><span class="ui-term__sig">$</span><span class="ui-term__typed"></span><i class="ui-term__caret" aria-hidden="true"></i></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
 </main>
 
 <footer class="footer closing footer--dark ground-inverse g2m" id="contact" aria-labelledby="close-h">
   <div class="wrap">
     <div class="closing__cta close--type">
       <div class="section-head">
-        <h2 id="close-h">Il modo più diretto è la posta</h2>
-        <p>Rispondo a tutto quello che non è una proposta di link building.</p>
+        <h2 id="close-h">Il modo più diretto è LinkedIn</h2>
+        <p>Scrivimi su <a class="link" href="https://www.linkedin.com/in/luca-bertaggia/">LinkedIn</a> oppure <a class="link" href="mailto:luca.bertaggia@dotspace.it">scrivimi per posta</a>: rispondo a tutto quello che non è una proposta di link building.</p>
       </div>
-      <a class="btn btn--primary btn--xl" href="mailto:luca.bertaggia@dotspace.it">Scrivimi<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--xl" href="https://www.linkedin.com/in/luca-bertaggia/">Scrivimi su LinkedIn<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+        <a class="btn btn--secondary btn--xl" href="mailto:luca.bertaggia@dotspace.it">Scrivi per posta</a>
+      </div>
     </div>
     <div class="closing__links">
       <div class="grid">
         <div class="span-4 stack-4">
           <a class="nav__logo" href="#top"><span class="mark" data-mark="ring" aria-hidden="true"></span>Luca Bertaggia</a>
-          <p class="footer__lede">Software con l'IA che rende automatici i processi ripetitivi.</p>
+          <p class="footer__lede">Software, IA e automazioni</p>
         </div>
-        <div class="span-2 footer__col"><h3>Pagina</h3><ul><li><a href="#chi-sono">Chi sono</a></li><li><a href="#percorso">Percorso</a></li><li><a href="#progetti">Progetti</a></li></ul></div>
-        <div class="span-2 footer__col"><h3>Contatti</h3><ul><li><a href="mailto:luca.bertaggia@dotspace.it">Email</a></li></ul></div>
-        <div class="span-2 footer__col"><h3>Profili</h3><ul><li><a href="https://github.com/Liuk040100">GitHub</a></li><li><a href="https://www.linkedin.com/in/luca-bertaggia/">LinkedIn</a></li></ul></div>
+        <div class="span-2 start-7 footer__col"><h3>Pagina</h3><ul><li><a href="#chi-sono">Chi sono</a></li><li><a href="#percorso">Percorso</a></li><li><a href="#progetti">Progetti</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Contatti</h3><ul><li><a href="mailto:luca.bertaggia@dotspace.it">Email</a></li><li><a href="https://github.com/Liuk040100">GitHub</a></li><li><a href="https://www.linkedin.com/in/luca-bertaggia/">LinkedIn</a></li></ul></div>
         <div class="span-2 footer__col"><h3>Documenti</h3><ul><li><a href="../Luca-Bertaggia-IT-Italiano.pdf">Presentazione in PDF</a></li></ul></div>
       </div>
       <div class="footer__legal">
